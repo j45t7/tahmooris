@@ -23,6 +23,7 @@ ul {
     margin: 0;
     padding: 0;
     font-weight: normal;
+    font-family: 'Manrope', Helvetica, sans-serif;
 }
 
 img {
@@ -31,6 +32,11 @@ img {
 }
 
 /* START PAGE */
+@font-face {
+    font-family: 'Manrope';
+    src: url('fonts/Manrope-Regular.woff') format('woff');
+}
+
 main {
     height: 100vh;
     width: 100vw;
@@ -72,5 +78,5 @@ main {
 .animation {
     height: 100%;
     width: 100%;
-    background-image: url('/images/vilnius.jpg');
+    /* background-image: url('/images/vilnius.jpg'); */
 }

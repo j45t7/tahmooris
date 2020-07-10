@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import axios from 'axios';
-import animation from './animation';
-import modelAnimation from './animation-model';
+// import animation from './animation';
+// import animation from './animation-no-controls';
+// import modelAnimation from './animation-model';
 import textAnimation from './animation-text';
 
 export default class App extends React.Component {

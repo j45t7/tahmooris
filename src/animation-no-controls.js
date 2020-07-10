@@ -1,12 +1,10 @@
 import * as THREE from 'three';
-import OrbitControls from 'orbit-controls-es6';
 
 export default function animation(container) {
     let camera;
-    let renderer;
     let scene;
     let mesh;
-    let controls;
+    let renderer;
 
     const createCamera = () => {
         camera = new THREE.PerspectiveCamera(
@@ -15,7 +13,7 @@ export default function animation(container) {
             0.1,
             100
         );
-        camera.position.set(-4, 4, 10);
+        camera.position.set(0, 0, 10);
     };
 
     const createLights = () => {
@@ -27,6 +25,7 @@ export default function animation(container) {
 
         const mainLight = new THREE.DirectionalLight(0xffffff, 4);
         mainLight.position.set(10, 10, 10);
+        // mainLight.position.copy(camera.position);
 
         scene.add(ambientLight, mainLight);
     };
@@ -59,18 +58,13 @@ export default function animation(container) {
         container.appendChild(renderer.domElement);
     };
 
-    const createControls = () => {
-        controls = new OrbitControls(camera, renderer.domElement);
-    };
-
     const init = () => {
         scene = new THREE.Scene();
 
         createCamera();
         createLights();
-        createMeshes();
         createRenderer();
-        createControls();
+        createMeshes();
 
         renderer.setAnimationLoop(() => {
             update();

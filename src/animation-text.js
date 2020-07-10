@@ -3,35 +3,10 @@ import OrbitControls from 'orbit-controls-es6';
 
 export default function textAnimation(container) {
     let camera;
-    let renderer;
     let scene;
     let mesh;
+    let renderer;
     let controls;
-
-    const createText = text => {
-        const loader = new THREE.FontLoader();
-        return loader.load('fonts/helvetiker_regular.typeface.json', font => {
-            const geometry = new THREE.TextGeometry(text, {
-                font: font,
-                size: 80,
-                height: 5,
-                curveSegments: 12,
-                bevelEnabled: true,
-                bevelThickness: 10,
-                bevelSize: 8,
-                bevelOffset: 0,
-                bevelSegments: 5,
-            });
-            var material = new THREE.MeshPhongMaterial({
-                color: 0xff0000,
-                specular: 0xffffff,
-            });
-
-            mesh = new THREE.Mesh(geometry, material);
-
-            return scene.add(mesh);
-        });
-    };
 
     const createCamera = () => {
         camera = new THREE.PerspectiveCamera(
@@ -40,7 +15,7 @@ export default function textAnimation(container) {
             0.1,
             100
         );
-        camera.position.set(-4, 4, 10);
+        camera.position.set(0, 0, 20);
     };
 
     const createLights = () => {
@@ -57,24 +32,43 @@ export default function textAnimation(container) {
         scene.add(ambientLight, mainLight);
     };
 
-    // const createMeshes = () => {
-    //     const geometry = new THREE.BoxBufferGeometry(1, 1, 1);
+    const createText = text => {
+        const loader = new THREE.FontLoader();
+        loader.load('fonts/Manrope-SemiBold-Regular.json', font => {
+            const geometry = new THREE.TextGeometry(text, {
+                font: font,
+                size: 1,
+                height: 0.5,
+                curveSegments: 10,
+                bevelEnabled: true,
+                bevelThickness: 0.01,
+                bevelSize: 0.01,
+                bevelOffset: 0.05,
+                bevelSegments: 3,
+            });
+            geometry.center();
+            const material = new THREE.MeshNormalMaterial();
 
-    //     const textureLoader = new THREE.TextureLoader();
-    //     const texture = textureLoader.load('images/glass.jpg');
-    //     texture.encoding = THREE.sRGBEncoding;
-    //     texture.anisotropy = 16;
+            // const textureLoader = new THREE.TextureLoader();
+            // const texture = textureLoader.load('images/vilnius.jpg');
+            // texture.encoding = THREE.sRGBEncoding;
+            // texture.anisotropy = 16;
 
-    //     const material = new THREE.MeshStandardMaterial({
-    //         map: texture,
-    //     });
+            // const material = new THREE.MeshStandardMaterial({
+            //     map: texture,
+            // });
 
-    //     mesh = new THREE.Mesh(geometry, material);
-    //     scene.add(mesh);
-    // };
+            mesh = new THREE.Mesh(geometry, material);
+
+            scene.add(mesh);
+        });
+    };
 
     const createRenderer = () => {
-        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer = new THREE.WebGLRenderer({
+            antialias: true,
+            alpha: true,
+        });
         renderer.setClearColor(0x000000, 0);
         renderer.setSize(container.clientWidth, container.clientHeight);
         renderer.setPixelRatio(window.devicePixelRatio);
@@ -85,18 +79,8 @@ export default function textAnimation(container) {
         container.appendChild(renderer.domElement);
     };
 
-    // const canvas = renderer.domElement;
-    // canvas.addEventListener('mousemove', onMouseMove);
-
-    // const onMouseMove = e => {
-    //     mesh.rotation.y += e.movementX * 0.005;
-    //     mesh.rotation.x += e.movementX * 0.005;
-    // };
-
     const createControls = () => {
-        controls = new OrbitControls(camera, container);
-        controls.target.set(0, 5, 0);
-        controls.update();
+        controls = new OrbitControls(camera, renderer.domElement);
     };
 
     const init = () => {
@@ -105,25 +89,24 @@ export default function textAnimation(container) {
         createCamera();
         createLights();
         createRenderer();
-        createText('ART');
-        // createMeshes();
+        createText('TAHMOORIS');
         createControls();
 
-        // renderer.setAnimationLoop(() => {
-        //     update();
-        //     render();
-        // });
+        renderer.setAnimationLoop(() => {
+            update();
+            render();
+        });
     };
 
-    // const update = () => {
-    //     mesh.rotation.z += 0.01;
-    //     mesh.rotation.x += 0.01;
-    //     mesh.rotation.y += 0.01;
-    // };
+    const update = () => {
+        // mesh.rotation.z += 0.01;
+        // mesh.rotation.x += 0.01;
+        // mesh.rotation.y += 0.01;
+    };
 
-    // const render = () => {
-    //     renderer.render(scene, camera);
-    // };
+    const render = () => {
+        renderer.render(scene, camera);
+    };
 
     const handleResize = () => {
         camera.aspect = container.clientWidth / container.clientHeight;
