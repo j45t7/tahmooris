@@ -5,7 +5,6 @@ import axios from 'axios';
 import animation from './animation';
 
 export default class App extends React.Component {
-    //just checking something
     componentDidMount() {
         animation(this.mount);
     }

@@ -1,34 +1,61 @@
 import * as THREE from 'three';
 
 export default function animation(container) {
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-        75,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        1000
-    );
+    let camera;
+    let renderer;
+    let scene;
+    let mesh;
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
-    renderer.setClearColor(0x000000, 0);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    container.appendChild(renderer.domElement);
+    const init = () => {
+        scene = new THREE.Scene();
+        const fov = 35;
+        const aspect = container.clientWidth / container.clientHeight;
+        const near = 0.1;
+        const far = 100;
 
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0x190a1e });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+        camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+        camera.position.set(0, 0, 10);
 
-    camera.position.z = 5;
+        const geometry = new THREE.BoxBufferGeometry(1, 1, 1);
+        // const material = new THREE.MeshBasicMaterial({ color: 0x190a1e });
+        const material = new THREE.MeshStandardMaterial({ color: 0x190a1e });
+        mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
 
-    const animate = () => {
-        requestAnimationFrame(animate);
+        const light = new THREE.DirectionalLight(0xffffff, 5.0);
+        light.position.set(10, 10, 10);
+        scene.add(light);
 
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.01;
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setClearColor(0x000000, 0);
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
 
+        container.appendChild(renderer.domElement);
+    };
+
+    const handleResize = () => {
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    init();
+
+    const update = () => {
+        mesh.rotation.z += 0.01;
+        mesh.rotation.x += 0.01;
+        mesh.rotation.y += 0.01;
+    };
+
+    const render = () => {
         renderer.render(scene, camera);
     };
 
-    return animate();
+    return renderer.setAnimationLoop(() => {
+        update();
+        render();
+    });
 }
