@@ -3,7 +3,12 @@ import * as THREE from 'three';
 export default function animation(container) {
     // SCENE
     const scene = new THREE.Scene();
-    // scene.background = new THREE.Color('skyblue');
+
+    // container = document.querySelector('#scene-container');
+    // we are passing the container as an argument so it is not necessary to traverse the DOM here
+
+    // scene.background = new THREE.Color(0x8fbcd4);
+    // this sets a color but we want a transparent background
 
     // CAMERA
     const fov = 35; // field of view in degrees (the angle of the frustrum)
@@ -37,7 +42,10 @@ export default function animation(container) {
 
     // RENDERER
     // alpha and setClearColor give a transparent background; antialias smooths the edges of the object
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    const renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true,
+    });
     renderer.setClearColor(0x000000, 0);
 
     renderer.setSize(container.clientWidth, container.clientHeight);
