@@ -1,7 +1,7 @@
 /* CSS RESET */
 html {
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 *,
@@ -22,7 +22,7 @@ ol,
 ul {
     margin: 0;
     padding: 0;
-    font-weight: normal;
+    font-weight: 500;
     font-family: 'Manrope', Helvetica, sans-serif;
 }
 
@@ -31,12 +31,22 @@ img {
     height: auto;
 }
 
-/* START PAGE */
+/* FONT SETUP */
 @font-face {
     font-family: 'Manrope';
-    src: url('fonts/Manrope-Regular.woff') format('woff');
+    src: url('fonts/Manrope-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
 }
 
+@font-face {
+    font-family: 'Manrope';
+    src: url('fonts/Manrope-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* START PAGE */
 main {
     height: 100vh;
     width: 100vw;
@@ -79,4 +89,38 @@ main {
     height: 100%;
     width: 100%;
     /* background-image: url('/images/vilnius.jpg'); */
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0.444em;
+    z-index: 10;
+}
+
+a:link,
+a:visited,
+a:active {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.container {
+    width: 40vw;
+    max-height: 80vh;
+}
+
+.container img {
+    width: 100%;
+}
+
+.toggle img {
+    height: 1.5em;
+    width: 1.5em;
 }
