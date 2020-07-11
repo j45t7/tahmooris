@@ -89,7 +89,7 @@ export default function textAnimation(container) {
         createCamera();
         createLights();
         createRenderer();
-        createText('TAHMOORIS');
+        createText('NADIA3D');
         createControls();
 
         renderer.setAnimationLoop(() => {

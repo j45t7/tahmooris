@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
-import axios from 'axios';
+import React from 'react';
+import { Link } from 'react-router-dom';
+// import axios from 'axios';
 
 export default function Gallery() {
     return (

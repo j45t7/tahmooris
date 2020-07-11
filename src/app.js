@@ -1,19 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
-import * as THREE from 'three';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-import axios from 'axios';
-// import animation from './animation';
-// import animation from './animation-no-controls';
-// import modelAnimation from './animation-model';
-import textAnimation from './animation-text';
 
-export default class App extends React.Component {
-    componentDidMount() {
-        // animation(this.mount);
-        textAnimation(this.mount);
-        // modelAnimation(this.mount);
-    }
-    render() {
-        return <div className='animation' ref={ref => (this.mount = ref)} />;
-    }
+import Home from './home';
+import Gallery from './gallery';
+import Nav from './nav';
+
+export default function App() {
+    return (
+        <BrowserRouter>
+            <>
+                <Nav />
+                <Route exact path='/' component={Home} />
+                <Route path='/work' component={Gallery} />
+            </>
+        </BrowserRouter>
+    );
 }
