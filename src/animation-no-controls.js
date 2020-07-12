@@ -31,10 +31,10 @@ export default function animation(container) {
     };
 
     const createMeshes = () => {
-        const geometry = new THREE.BoxBufferGeometry(1, 1, 1);
+        const geometry = new THREE.BoxBufferGeometry(2, 2, 2);
 
         const textureLoader = new THREE.TextureLoader();
-        const texture = textureLoader.load('images/s13.jpg');
+        const texture = textureLoader.load('images/v1.jpg');
         texture.encoding = THREE.sRGBEncoding;
         texture.anisotropy = 16;
 

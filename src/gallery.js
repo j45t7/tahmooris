@@ -34,34 +34,33 @@ export default function Gallery() {
                 <div onClick={clickNext} className='next'></div>
             </div>
             {space == 1 && (
-                <div className='space'>
+                <div className='space one'>
                     <div className='c-v8'>
                         <img src='images/v8.jpg' />
-                    </div>
-                    <div className='c-v14'>
-                        <img src='images/s12.jpg' />
                     </div>
                 </div>
             )}
             {space == 2 && (
-                <div className='space'>
-                    <div className='left-2'>
-                        <div className='c-n4'>
-                            <img src='images/n4.jpg' />
-                        </div>
-                        <div className='c-s7'>
-                            <img src='images/s7.jpg' />
-                        </div>
+                <div className='space two'>
+                    <div className='c-n4'>
+                        <img src='images/n4.jpg' />
                     </div>
+                    {/* <div className='c-s7'>
+                        <img src='images/s7.jpg' />
+                    </div> */}
+
                     <div className='c-s4'>
                         <img src='images/s4.jpg' />
                     </div>
                 </div>
             )}
             {space == 3 && (
-                <div className='space'>
+                <div className='space three'>
                     <div className='c-s5'>
                         <img src='images/s5.jpg' />
+                    </div>
+                    <div className='c-v9'>
+                        <img src='images/v9.jpg' />
                     </div>
                 </div>
             )}
