@@ -36,7 +36,7 @@ export default function modelAnimation(container) {
         const modelPosition = new THREE.Vector3(0, -20, 0);
 
         loader.load(
-            'images/nefertiti.glb',
+            'models/nefertiti.glb',
             gltf => onLoad(gltf, modelPosition),
             onProgress,
             onError

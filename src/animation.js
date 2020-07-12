@@ -35,7 +35,7 @@ export default function animation(container) {
         const geometry = new THREE.BoxBufferGeometry(1, 1, 1);
 
         const textureLoader = new THREE.TextureLoader();
-        const texture = textureLoader.load('images/glass.jpg');
+        const texture = textureLoader.load('images/s13.jpg');
         texture.encoding = THREE.sRGBEncoding;
         texture.anisotropy = 16;
 

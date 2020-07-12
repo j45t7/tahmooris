@@ -8,22 +8,27 @@ export default function App() {
     const [infoVisible, setInfoVisible] = useState(false);
 
     const toggleInfo = () => {
-        setInfoVisible(!infoVisible);
+        const info = document.querySelector('.toggle');
+        if (!infoVisible) {
+            info.classList.remove('closed');
+            info.classList.add('open');
+            setInfoVisible(true);
+        } else {
+            info.classList.remove('open');
+            info.classList.add('closed');
+            setInfoVisible(false);
+        }
     };
 
     return (
         <BrowserRouter>
             <>
                 <div className='nav'>
-                    <div onClick={toggleInfo} className='toggle'>
-                        <img alt='Information' src='images/square.svg' />
-                    </div>
+                    <div onClick={toggleInfo} className='toggle closed'></div>
                     {infoVisible && (
                         <div className='info'>
-                            <p>
-                                Tahmooris Ramazankhani is a photographer based
-                                in Berlin
-                            </p>
+                            <p>Tahmooris Ramazankhani</p>
+                            <p>is a photographer based in Berlin</p>
                             <p>Email: tahmooris@gmail.com</p>
                             <p>Website by Tim Chandler</p>
                         </div>

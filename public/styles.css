@@ -1,7 +1,7 @@
 /* CSS RESET */
 html {
     box-sizing: border-box;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 *,
@@ -22,13 +22,25 @@ ol,
 ul {
     margin: 0;
     padding: 0;
-    font-weight: 500;
+    font-weight: normal;
     font-family: 'Manrope', Helvetica, sans-serif;
 }
 
 img {
     max-width: 100%;
     height: auto;
+}
+
+a:link,
+a:visited,
+a:active {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    text-decoration: underline;
 }
 
 /* FONT SETUP */
@@ -46,49 +58,25 @@ img {
     font-style: normal;
 }
 
-/* START PAGE */
+/* HOME PAGE */
 main {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
 }
 
-.app {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-}
-
-.gallery-nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-}
-
-.previous {
-    height: 100%;
-    flex-grow: 2;
-    cursor: url('arrow-left.svg'), auto;
-    z-index: 1;
-}
-
-.next {
-    height: 100%;
-    flex-grow: 3;
-    cursor: url('arrow-right.svg'), auto;
-    z-index: 1;
-}
-
 .animation {
     height: 100%;
     width: 100%;
-    /* background-image: url('/images/vilnius.jpg'); */
+    background-image: url('/images/v1.jpg');
+}
+
+/* INFO */
+p {
+    text-transform: uppercase;
+    font-size: 2.25em;
+    font-weight: 700;
+    line-height: 1.1;
 }
 
 .nav {
@@ -99,28 +87,190 @@ main {
     z-index: 10;
 }
 
-a:link,
-a:visited,
-a:active {
-    color: black;
-    text-decoration: none;
+.toggle {
+    height: 2em;
+    width: 2em;
+    overflow: hidden;
+    cursor: pointer;
+    transition-property: transform;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    animation: colours 20s linear infinite;
 }
 
-a:hover {
-    color: black;
-    text-decoration: underline;
+@keyframes colours {
+    0% {
+        background: #712e26;
+    }
+    25% {
+        background: #1e4015;
+    }
+    50% {
+        background: #1e4759;
+    }
+    75% {
+        background: #501b52;
+    }
+    100% {
+        background: #712e26;
+    }
 }
 
-.container {
-    width: 40vw;
-    max-height: 80vh;
+.toggle.open {
+    transform: rotate(90deg);
 }
 
-.container img {
+.toggle.closed {
+    transform: rotate(-90deg);
+}
+
+/* GALLERY */
+.gallery {
+    height: 100%;
+    width: 100%;
+}
+.gallery-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    z-index: 1;
+}
+
+.previous {
+    height: 100%;
+    flex-grow: 2;
+    cursor: url('nav/arrow-left.svg'), auto;
+}
+
+.next {
+    height: 100%;
+    flex-grow: 3;
+    cursor: url('nav/arrow-right.svg'), auto;
+    z-index: 1;
+}
+
+.space {
+    position: relative;
+    height: 100%;
     width: 100%;
 }
 
-.toggle img {
-    height: 1.5em;
-    width: 1.5em;
+.space > * {
+    position: absolute;
+}
+
+/* SPACE ONE */
+.c-v8 {
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.c-v14 {
+    width: 240px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* SPACE TWO */
+.left-2 {
+    height: 700px;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 120px;
+}
+
+.c-n4 {
+    width: 320px;
+}
+
+.c-s7 {
+    position: absolute;
+    width: 300px;
+    bottom: 0;
+    left: 200px;
+}
+
+.c-s4 {
+    width: 500px;
+    height: 700px;
+    overflow: hidden;
+    right: 40px;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+/* SPACE THREE */
+.c-s5 {
+    width: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* SPACE FOUR */
+.c-s2 {
+    width: 500px;
+    bottom: 50px;
+    left: 100px;
+}
+
+/* SPACE FIVE */
+.c-s9 {
+    width: 200px;
+    top: 100px;
+    right: 200px;
+    animation: 1s fadeIn;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+}
+
+.c-s3 {
+    width: 400px;
+    top: 300px;
+    right: 100px;
+    animation: 1s fadeIn;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+}
+
+.c-v3 {
+    width: 300px;
+    top: 200px;
+    left: 400px;
+    animation: 1s fadeIn;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+}
+
+.c-n3 {
+    width: 200px;
+    top: 20px;
+    left: 300px;
+    animation: 1s fadeIn;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
 }

@@ -1,8 +1,8 @@
 import React from 'react';
-import animation from './animation';
-// import animation from './animation-no-controls';
+// import animation from './animation';
+import animation from './animation-no-controls';
 // import modelAnimation from './animation-model';
-// import textAnimation from './animation-text';
+import textAnimation from './animation-text';
 
 export default class Home extends React.Component {
     componentDidMount() {
