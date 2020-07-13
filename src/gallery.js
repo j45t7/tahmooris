@@ -1,14 +1,34 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
+import spaceEight from './space-eight';
 
-export default function Gallery() {
-    const [space, setSpace] = useState(1);
+export default function Gallery(props) {
+    const [space, setSpace] = useState();
     const [spaces, setSpaces] = useState([]);
+    const [nextSpace, setNextSpace] = useState();
+    const [previousSpace, setPreviousSpace] = useState();
+    let animationContainer;
 
     useEffect(() => {
-        setSpaces([1, 2, 3, 4, 5, 6]);
-        console.log(space);
+        setSpaces([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+        setSpace(parseInt(props.match.params.space));
+    }, []);
+
+    useEffect(() => {
+        if (space === spaces.length) {
+            setNextSpace(1);
+        } else {
+            setNextSpace(space + 1);
+        }
+        if (space === 1) {
+            setPreviousSpace(spaces.length);
+        } else {
+            setPreviousSpace(space - 1);
+        }
+        // if (space === 8) {
+        //     animationContainer = document.querySelector('.eight');
+        //     spaceEight(animationContainer);
+        // }
     }, [space]);
 
     const clickNext = () => {
@@ -30,63 +50,107 @@ export default function Gallery() {
     return (
         <div className='gallery'>
             <div className='gallery-nav'>
-                <div onClick={clickPrevious} className='previous'></div>
-                <div onClick={clickNext} className='next'></div>
+                <Link
+                    onClick={clickPrevious}
+                    className='previous'
+                    to={`/work/${previousSpace}`}>
+                    <div className='previous'></div>
+                </Link>
+                <Link
+                    onClick={clickNext}
+                    className='next'
+                    to={`/work/${nextSpace}`}>
+                    <div className='next'></div>
+                </Link>
             </div>
-            {space == 1 && (
+            {space === 1 && (
                 <div className='space one'>
                     <div className='c-v8'>
-                        <img src='images/v8.jpg' />
+                        <img src='/images/v8.jpg' />
                     </div>
                 </div>
             )}
-            {space == 2 && (
+            {space === 2 && (
                 <div className='space two'>
                     <div className='c-n4'>
-                        <img src='images/n4.jpg' />
+                        <img src='/images/n4.jpg' />
                     </div>
-                    {/* <div className='c-s7'>
-                        <img src='images/s7.jpg' />
-                    </div> */}
-
                     <div className='c-s4'>
-                        <img src='images/s4.jpg' />
+                        <img src='/images/s4.jpg' />
                     </div>
                 </div>
             )}
-            {space == 3 && (
+            {space === 3 && (
                 <div className='space three'>
                     <div className='c-s5'>
-                        <img src='images/s5.jpg' />
+                        <img src='/images/s5.jpg' />
                     </div>
                     <div className='c-v9'>
-                        <img src='images/v9.jpg' />
+                        <img src='/images/v9.jpg' />
                     </div>
                 </div>
             )}
-            {space == 4 && (
-                <div className='space'>
+            {space === 4 && (
+                <div className='space four'>
                     <div className='c-s2'>
-                        <img src='images/s2.jpg' />
+                        <img src='/images/s2.jpg' />
                     </div>
                 </div>
             )}
-            {space == 5 && (
-                <div className='space'>
+            {space === 5 && (
+                <div className='space five'>
                     <div className='c-s2'>
-                        <img src='images/s2.jpg' />
+                        <img src='/images/s2.jpg' />
                     </div>
                     <div className='c-s3'>
-                        <img src='images/s3.jpg' />
+                        <img src='/images/s3.jpg' />
                     </div>
                     <div className='c-s9'>
-                        <img src='images/s9.jpg' />
+                        <img src='/images/s9.jpg' />
                     </div>
                     <div className='c-v3'>
-                        <img src='images/v3.jpg' />
+                        <img src='/images/v3.jpg' />
                     </div>
                     <div className='c-n3'>
-                        <img src='images/n3.jpg' />
+                        <img src='/images/n3.jpg' />
+                    </div>
+                </div>
+            )}
+            {space === 6 && (
+                <div className='space six'>
+                    <div className='c-s1'>
+                        <img src='/images/s1.jpg' />
+                    </div>
+                </div>
+            )}
+            {space === 7 && (
+                <div className='space seven'>
+                    <div className='c-s6'>
+                        <img src='/images/s6.jpg' />
+                    </div>
+                    <div className='c-l2'>
+                        <img src='/images/l2.jpg' />
+                    </div>
+                </div>
+            )}
+            {space === 8 && (
+                <div className='space eight'>
+                    <div className='c-t2'>
+                        <img src='/images/t2.jpg' />
+                    </div>
+                </div>
+            )}
+            {space === 9 && (
+                <div className='space nine'>
+                    <div className='c-t3'>
+                        <img src='/images/t3.jpg' />
+                    </div>
+                </div>
+            )}
+            {space === 10 && (
+                <div className='space ten'>
+                    <div className='c-t4'>
+                        <img src='/images/t4.jpg' />
                     </div>
                 </div>
             )}

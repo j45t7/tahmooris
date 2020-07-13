@@ -6,11 +6,12 @@ import textAnimation from './animation-text';
 
 export default class Home extends React.Component {
     componentDidMount() {
-        animation(this.mount);
-        // textAnimation(this.mount);
-        // modelAnimation(this.mount);
+        const container = document.querySelector('.animation');
+        animation(container);
+        // textAnimation(container);
+        // modelAnimation(container);
     }
     render() {
-        return <div className='animation' ref={ref => (this.mount = ref)} />;
+        return <div className='animation' />;
     }
 }
