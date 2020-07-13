@@ -65,74 +65,53 @@ export default function Gallery(props) {
             </div>
             {space === 1 && (
                 <div className='space one'>
-                    <div className='c-v8'>
-                        <img src='/images/v8.jpg' />
+                    <div className='c-l2'>
+                        <img src='/images/l2.jpg' />
+                    </div>
+                    <div className='c-f2'>
+                        <img src='/images/f2.jpg' />
                     </div>
                 </div>
             )}
             {space === 2 && (
                 <div className='space two'>
-                    <div className='c-n4'>
-                        <img src='/images/n4.jpg' />
+                    <div className='c-v8'>
+                        <img src='/images/v8.jpg' />
                     </div>
-                    <div className='c-s4'>
-                        <img src='/images/s4.jpg' />
+                    <div className='c-s14'>
+                        <img src='/images/s14.jpg' />
                     </div>
                 </div>
             )}
             {space === 3 && (
                 <div className='space three'>
-                    <div className='c-s5'>
-                        <img src='/images/s5.jpg' />
-                    </div>
-                    <div className='c-v9'>
-                        <img src='/images/v9.jpg' />
+                    <div className='c-s6'>
+                        <img src='/images/s6.jpg' />
                     </div>
                 </div>
             )}
             {space === 4 && (
                 <div className='space four'>
-                    <div className='c-s2'>
-                        <img src='/images/s2.jpg' />
+                    <div className='c-s4'>
+                        <img src='/images/s4.jpg' />
+                    </div>
+                    <div className='c-s7'>
+                        <img src='/images/s7.jpg' />
+                    </div>
+                    <div className='c-n4'>
+                        <img src='/images/n4.jpg' />
                     </div>
                 </div>
             )}
             {space === 5 && (
                 <div className='space five'>
-                    <div className='c-s2'>
-                        <img src='/images/s2.jpg' />
-                    </div>
-                    <div className='c-s3'>
-                        <img src='/images/s3.jpg' />
-                    </div>
-                    <div className='c-s9'>
-                        <img src='/images/s9.jpg' />
-                    </div>
-                    <div className='c-v3'>
-                        <img src='/images/v3.jpg' />
-                    </div>
-                    <div className='c-n3'>
-                        <img src='/images/n3.jpg' />
-                    </div>
-                </div>
-            )}
-            {space === 6 && (
-                <div className='space six'>
                     <div className='c-s1'>
                         <img src='/images/s1.jpg' />
                     </div>
                 </div>
             )}
-            {space === 7 && (
-                <div className='space seven'>
-                    <div className='c-s6'>
-                        <img src='/images/s6.jpg' />
-                    </div>
-                    <div className='c-l2'>
-                        <img src='/images/l2.jpg' />
-                    </div>
-                </div>
-            )}
+            {space === 6 && <div className='space six'></div>}
+            {space === 7 && <div className='space six'></div>}
             {space === 8 && (
                 <div className='space eight'>
                     <div className='c-t2'>

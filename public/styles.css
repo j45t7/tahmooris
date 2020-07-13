@@ -152,6 +152,40 @@ p {
     transform: translate(-50%, -50%);
     width: 80%;
     height: 80%;
+    display: grid;
+    grid-template-columns: repeat(12, calc(80vw / 12));
+    grid-template-rows: repeat(12, calc(80vh / 12));
+}
+
+.c-l2 {
+    grid-column: 1 / auto;
+    grid-row: 3 / 13;
+    align-self: end;
+}
+
+.c-f2 {
+    grid-column: 7 / auto;
+    grid-row: 1 / auto;
+    /* align-self: start; */
+}
+
+.c-l2 img {
+    object-fit: scale-down;
+    max-height: calc(0.7 * 90vh);
+}
+
+.c-f2 img {
+    object-fit: scale-down;
+    max-height: calc(1 / 2 * 90vh);
+}
+
+/* .one {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
 }
 
 .c-v8 {
@@ -163,23 +197,22 @@ p {
 .c-v8 img {
     max-width: 80vw;
     object-fit: scale-down;
-}
+} */
 
 /* SPACE TWO */
 .two {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 100%;
 }
 
-.c-n4 {
+.c-v8 {
     width: 100%;
+    height: auto;
+    overflow: hidden;
     grid-column-start: 1;
     grid-row-start: 1;
     place-self: center;
@@ -187,7 +220,7 @@ p {
     justify-content: center;
 }
 
-.c-s4 {
+.c-s14 {
     grid-column-start: 1;
     grid-row-start: 1;
     place-self: center;
@@ -195,195 +228,18 @@ p {
     justify-content: center;
 }
 
-.c-n4 img {
-    max-width: 80vw;
-    max-height: 80vh;
-    object-fit: scale-down;
+.c-v8 img {
+    width: 100vw;
 }
 
-.c-s4 img {
-    max-width: 30vw;
-    max-height: calc(80vh - 60px);
+.c-s14 img {
+    max-width: 40vw;
+    max-height: calc(100vh - 100px);
     object-fit: scale-down;
 }
 
 /* SPACE THREE */
 .three {
-    width: 80%;
-    height: 80%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: grid;
-    grid-template-columns: repeat(2, calc(50% - 40px));
-    grid-template-rows: 100%;
-    column-gap: 80px;
-}
-
-.c-s5 {
-    place-self: center;
-    display: flex;
-    justify-content: center;
-}
-
-.c-v9 {
-    place-self: center;
-    display: flex;
-    justify-content: center;
-}
-
-.c-s5 img,
-.c-v9 img {
-    max-width: calc(40vw - 40px);
-    object-fit: scale-down;
-}
-
-.c-v9 img {
-    max-height: 80vh;
-}
-
-.c-s5 img {
-    max-height: calc(0.928 * 80vh);
-}
-
-/* SPACE FOUR */
-.four {
-    width: 80%;
-    height: 80%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: grid;
-    grid-template-columns: repeat(12, calc(80vw / 12));
-    grid-template-rows: repeat(12, calc(80vh / 12));
-}
-
-.c-s2 {
-    grid-column: 1 / auto;
-    grid-row: 5 / 13;
-    align-self: end;
-}
-
-.c-s2 img {
-    object-fit: scale-down;
-    max-height: calc(2 / 3 * 80vh);
-}
-
-/* SPACE FIVE */
-.five {
-    width: 80%;
-    height: 80%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: grid;
-    grid-template-columns: repeat(12, calc(80vw / 12));
-    grid-template-rows: repeat(12, calc(80vh / 12));
-}
-
-.c-s2 {
-    grid-column: 1 / auto;
-    grid-row: 5 / 13;
-    align-self: end;
-}
-
-.c-s2 img {
-    object-fit: scale-down;
-    max-height: calc(2 / 3 * 80vh);
-}
-
-.c-s3 {
-    grid-column: 8 / auto;
-    grid-row: 3 / auto;
-    animation: 1s fadeIn;
-    animation-delay: 0.5s;
-    animation-fill-mode: forwards;
-    visibility: hidden;
-}
-
-.c-s3 img {
-    object-fit: scale-down;
-    max-height: calc(2 / 3 * 80vh);
-}
-
-.c-s9 {
-    grid-column: 4 / auto;
-    grid-row: 2 / auto;
-    animation: 1s fadeIn;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
-    visibility: hidden;
-}
-
-.c-s9 img {
-    object-fit: scale-down;
-    max-height: calc(1 / 3 * 80vh);
-}
-
-.c-v3 {
-    grid-column: 7 / auto;
-    grid-row: 7 / auto;
-    animation: 1s fadeIn;
-    animation-delay: 1.5s;
-    animation-fill-mode: forwards;
-    visibility: hidden;
-}
-
-.c-v3 img {
-    object-fit: scale-down;
-    max-height: calc(1 / 2 * 80vh);
-}
-
-.c-n3 {
-    grid-column: 9 / auto;
-    grid-row: 1 / auto;
-    animation: 1s fadeIn;
-    animation-delay: 2s;
-    animation-fill-mode: forwards;
-    visibility: hidden;
-}
-
-.c-n3 img {
-    object-fit: scale-down;
-    max-height: calc(1 / 4 * 80vh);
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        visibility: visible;
-        opacity: 1;
-    }
-}
-
-/* SPACE SIX */
-.six {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 80%;
-}
-
-.c-s1 {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.c-s1 img {
-    max-width: 80vw;
-    object-fit: scale-down;
-}
-
-/* SPACE SEVEN */
-.seven {
     width: 80%;
     height: 80%;
     position: absolute;
@@ -402,21 +258,97 @@ p {
     justify-content: center;
 }
 
-.c-l2 {
-    place-self: center;
-    display: flex;
-    justify-content: center;
-}
-
 .c-s6 img {
     max-width: calc(40vw - 40px);
     object-fit: scale-down;
 }
 
-.c-l2 img {
-    max-width: calc(0.7 * (40vw - 40px));
+/* SPACE FOUR */
+.four {
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: repeat(12, calc(80vw / 12));
+    grid-template-rows: repeat(12, calc(80vh / 12));
+}
+
+.c-s4 {
+    grid-column: 7 / 13;
+    grid-row: 1 / 13;
+    justify-self: end;
+}
+
+.c-n4 {
+    grid-column: 1 / auto;
+    grid-row: 1 / auto;
+    animation: 1s fadeIn;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+}
+
+.c-s7 {
+    grid-column: 3 / auto;
+    grid-row: 7 / 13;
+    align-self: end;
+    display: flex;
+    animation: 1s fadeIn;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+}
+
+.c-s4 img {
+    object-fit: scale-down;
+    max-height: 80vh;
+}
+
+.c-n4 img {
+    object-fit: scale-down;
+    max-width: 20vw;
+}
+.c-s7 img {
+    object-fit: scale-down;
+    max-height: 40vh;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+/* SPACE FIVE */
+.five {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+}
+
+.c-s1 {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.c-s1 img {
+    max-width: 80vw;
     object-fit: scale-down;
 }
+/* SPACE SIX */
+
+/* SPACE SEVEN */
 
 /* SPACE EIGHT */
 .eight {
