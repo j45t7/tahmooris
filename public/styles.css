@@ -65,10 +65,20 @@ main {
     overflow: hidden;
 }
 
+.home {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.background {
+    min-width: 100%;
+    min-height: 100%;
+}
+
 .animation {
     height: 100%;
     width: 100%;
-    background-image: url('/images/v1.jpg');
 }
 
 /* INFO */
@@ -79,10 +89,35 @@ p {
     line-height: 1.1;
 }
 
+.gallery-link {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 0.444em;
+    z-index: 10;
+    height: 2em;
+    width: 2em;
+    border-radius: 50%;
+    background-color: black;
+    border: 2px solid black;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-link:hover,
+.toggle:hover {
+    background-color: transparent;
+}
+
+.gallery-link:active {
+    transform: scale(1.1);
+}
+
 .nav {
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     margin: 0.444em;
     z-index: 10;
 }
@@ -91,6 +126,7 @@ p {
     height: 2em;
     width: 2em;
     background-color: black;
+    border: 2px solid black;
     overflow: hidden;
     cursor: pointer;
     transition-property: transform;
@@ -132,6 +168,20 @@ p {
     flex-grow: 3;
     cursor: url('nav/arrow-right.svg'), auto;
     z-index: 1;
+}
+
+.space {
+    overflow: hidden;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
 }
 
 /* .space {
@@ -286,7 +336,7 @@ p {
     grid-column: 1 / auto;
     grid-row: 1 / auto;
     animation: 1s fadeIn;
-    animation-delay: 0.5s;
+    animation-delay: 0.3s;
     animation-fill-mode: forwards;
     visibility: hidden;
 }
@@ -297,7 +347,7 @@ p {
     align-self: end;
     display: flex;
     animation: 1s fadeIn;
-    animation-delay: 1s;
+    animation-delay: 0.8s;
     animation-fill-mode: forwards;
     visibility: hidden;
 }
@@ -316,16 +366,6 @@ p {
     max-height: 40vh;
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        visibility: visible;
-        opacity: 1;
-    }
-}
-
 /* SPACE FIVE */
 .five {
     position: absolute;
@@ -336,22 +376,56 @@ p {
     height: 80%;
 }
 
-.c-s1 {
+.c-t11 {
     height: 100%;
     display: flex;
     justify-content: center;
 }
 
-.c-s1 img {
+.c-t11 img {
     max-width: 80vw;
     object-fit: scale-down;
 }
 /* SPACE SIX */
+.six {
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: repeat(2, calc(50% - 40px));
+    grid-template-rows: 100%;
+    column-gap: 80px;
+}
+
+.c-t10 {
+    /* place-self: center;
+    display: flex;
+    justify-content: center; */
+}
+
+.c-t10 img {
+    max-width: calc(30vw - 40px);
+    max-height: 80vh;
+    object-fit: scale-down;
+}
+
+.c-t5 {
+    place-self: center;
+    display: flex;
+    justify-content: center;
+}
+
+.c-t5 img {
+    max-width: calc(35vw - 40px);
+    max-height: 80vh;
+    object-fit: scale-down;
+}
 
 /* SPACE SEVEN */
-
-/* SPACE EIGHT */
-.eight {
+.seven {
     position: absolute;
     top: 50%;
     left: 50px;
@@ -368,11 +442,12 @@ p {
 
 .c-t2 img {
     max-width: 80vw;
+    max-height: 80vh;
     object-fit: scale-down;
 }
 
-/* SPACE NINE */
-.nine {
+/* SPACE EIGHT */
+.eight {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -389,11 +464,12 @@ p {
 
 .c-t3 img {
     max-width: 80vw;
+    max-height: 80vh;
     object-fit: scale-down;
 }
 
-/* SPACE TEN */
-.ten {
+/* SPACE NINE */
+.nine {
     position: absolute;
     top: 50%;
     right: 50px;
@@ -410,5 +486,81 @@ p {
 
 .c-t4 img {
     max-width: 80vw;
+    max-height: 80vh;
+    object-fit: scale-down;
+}
+
+/* SPACE TEN */
+.ten {
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 60%;
+    animation: 1s fadeIn;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+}
+
+.c-l3 {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.c-s1 {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    animation-delay: 1s;
+    animation: 1s fadeIn;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+    z-index: 2;
+}
+
+.c-l3 img,
+.c-s1 img {
+    max-width: 80vw;
+    max-height: 80vw;
+    object-fit: scale-down;
+}
+
+/* SPACE ELEVEN */
+.eleven {
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: repeat(2, calc(50% - 40px));
+    grid-template-rows: 100%;
+    column-gap: 80px;
+}
+
+.c-t6 {
+    place-self: center;
+    display: flex;
+    justify-content: center;
+}
+
+.c-t6 img {
+    max-width: calc(40vw - 40px);
+    max-height: 80vh;
+    object-fit: scale-down;
+}
+
+.c-t1 {
+    place-self: center;
+    display: flex;
+    justify-content: center;
+}
+
+.c-t1 img {
+    max-width: calc(40vw - 40px);
+    max-height: 80vh;
     object-fit: scale-down;
 }

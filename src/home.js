@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 // import animation from './animation';
 import animation from './animation-no-controls';
 // import modelAnimation from './animation-model';
@@ -12,6 +14,11 @@ export default class Home extends React.Component {
         // modelAnimation(container);
     }
     render() {
-        return <div className='animation' />;
+        return (
+            <div className='home'>
+                <img className='background' src='/images/n2.jpg' />
+                <div className='animation' />
+            </div>
+        );
     }
 }

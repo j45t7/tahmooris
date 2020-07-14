@@ -4,8 +4,9 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import Home from './home';
 import Gallery from './gallery';
 
-export default function App() {
+export default function App(props) {
     const [infoVisible, setInfoVisible] = useState(false);
+    const [currentComponent, setCurrentComponent] = useState('home');
 
     const toggleInfo = () => {
         const info = document.querySelector('.toggle');
@@ -17,6 +18,14 @@ export default function App() {
             info.classList.remove('open');
             info.classList.add('closed');
             setInfoVisible(false);
+        }
+    };
+
+    const handleClick = () => {
+        if (currentComponent == 'home') {
+            setCurrentComponent('gallery');
+        } else {
+            setCurrentComponent('home');
         }
     };
 
@@ -32,6 +41,16 @@ export default function App() {
                             <p>tahmooris@gmail.com</p>
                             <p>Website by Tim Chandler</p>
                         </div>
+                    )}
+                    {currentComponent == 'home' && (
+                        <Link onClick={handleClick} to='/work/1'>
+                            <div className='gallery-link' />
+                        </Link>
+                    )}
+                    {currentComponent == 'gallery' && (
+                        <Link onClick={handleClick} to='/'>
+                            <div className='gallery-link' />
+                        </Link>
                     )}
                 </div>
                 <Route exact path='/' component={Home} />

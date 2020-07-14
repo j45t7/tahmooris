@@ -10,7 +10,7 @@ export default function Gallery(props) {
     let animationContainer;
 
     useEffect(() => {
-        setSpaces([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+        setSpaces([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
         setSpace(parseInt(props.match.params.space));
     }, []);
 
@@ -105,34 +105,62 @@ export default function Gallery(props) {
             )}
             {space === 5 && (
                 <div className='space five'>
-                    <div className='c-s1'>
-                        <img src='/images/s1.jpg' />
+                    <div className='c-t11'>
+                        <img src='/images/t11.jpg' />
                     </div>
                 </div>
             )}
-            {space === 6 && <div className='space six'></div>}
-            {space === 7 && <div className='space six'></div>}
-            {space === 8 && (
-                <div className='space eight'>
+            {space === 6 && (
+                <div className='space six'>
+                    <div className='c-t10'>
+                        <img src='/images/t10.jpg' />
+                    </div>
+                    <div className='c-t5'>
+                        <img src='/images/t5.jpg' />
+                    </div>
+                </div>
+            )}
+            {space === 7 && (
+                <div className='space seven'>
                     <div className='c-t2'>
                         <img src='/images/t2.jpg' />
                     </div>
                 </div>
             )}
-            {space === 9 && (
-                <div className='space nine'>
+            {space === 8 && (
+                <div className='space eight'>
                     <div className='c-t3'>
                         <img src='/images/t3.jpg' />
                     </div>
                 </div>
             )}
-            {space === 10 && (
-                <div className='space ten'>
+            {space === 9 && (
+                <div className='space nine'>
                     <div className='c-t4'>
                         <img src='/images/t4.jpg' />
                     </div>
                 </div>
             )}
+            {space === 10 && (
+                <div className='space ten'>
+                    <div className='c-l3'>
+                        <img src='/images/l3.jpg' />
+                    </div>
+                    <div className='c-s1'>
+                        <img src='/images/s1.jpg' />
+                    </div>
+                </div>
+            )}
+            {space === 11 && (
+                <div className='space eleven'>
+                    <div className='c-t6'>
+                        <img src='/images/t6.jpg' />
+                    </div>
+                    <div className='c-t1'>
+                        <img src='/images/t1.jpg' />
+                    </div>
+                </div>
+            )}{' '}
         </div>
     );
 }
