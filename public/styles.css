@@ -72,8 +72,9 @@ main {
 }
 
 .background {
-    min-width: 100%;
-    min-height: 100%;
+    min-width: 100vw;
+    min-height: 100vh;
+    z-index: -10;
 }
 
 .animation {
@@ -99,7 +100,7 @@ p {
     width: 2em;
     border-radius: 50%;
     background-color: black;
-    border: 2px solid black;
+    border: 3px solid black;
     overflow: hidden;
     cursor: pointer;
 }
@@ -126,7 +127,7 @@ p {
     height: 2em;
     width: 2em;
     background-color: black;
-    border: 2px solid black;
+    border: 3px solid black;
     overflow: hidden;
     cursor: pointer;
     transition-property: transform;
@@ -181,6 +182,16 @@ p {
     100% {
         visibility: visible;
         opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        visibility: hidden;
+        opacity: 0;
     }
 }
 
@@ -279,7 +290,8 @@ p {
 }
 
 .c-v8 img {
-    width: 100vw;
+    min-width: 100vw;
+    min-height: 100vh;
 }
 
 .c-s14 img {
@@ -315,6 +327,43 @@ p {
 
 /* SPACE FOUR */
 .four {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, calc(50% - 20px));
+    grid-template-rows: 100%;
+    column-gap: 40px;
+}
+
+.c-v6 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.c-s2 {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    place-self: center;
+    display: flex;
+    justify-content: center;
+}
+
+.c-v6 img {
+    object-fit: cover;
+    min-height: 100vh;
+    max-width: calc(50vw - 20px);
+}
+
+.c-s2 img {
+    max-width: 60vw;
+    max-height: 60vh;
+}
+
+/* SPACE FIVE */
+.five {
     width: 80%;
     height: 80%;
     position: absolute;
@@ -366,8 +415,8 @@ p {
     max-height: 40vh;
 }
 
-/* SPACE FIVE */
-.five {
+/* SPACE SIX */
+.six {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -386,8 +435,8 @@ p {
     max-width: 80vw;
     object-fit: scale-down;
 }
-/* SPACE SIX */
-.six {
+/* SPACE SEVEN */
+.seven {
     width: 80%;
     height: 80%;
     position: absolute;
@@ -424,8 +473,8 @@ p {
     object-fit: scale-down;
 }
 
-/* SPACE SEVEN */
-.seven {
+/* SPACE EIGHT */
+.eight {
     position: absolute;
     top: 50%;
     left: 50px;
@@ -446,8 +495,8 @@ p {
     object-fit: scale-down;
 }
 
-/* SPACE EIGHT */
-.eight {
+/* SPACE NINE */
+.nine {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -468,8 +517,8 @@ p {
     object-fit: scale-down;
 }
 
-/* SPACE NINE */
-.nine {
+/* SPACE TEN */
+.ten {
     position: absolute;
     top: 50%;
     right: 50px;
@@ -490,26 +539,27 @@ p {
     object-fit: scale-down;
 }
 
-/* SPACE TEN */
-.ten {
+/* SPACE ELEVEN */
+.eleven {
     position: absolute;
     top: 50%;
-    right: 50px;
+    left: 50%;
     transform: translate(-50%, -50%);
-    width: 40%;
-    height: 60%;
-    animation: 1s fadeIn;
-    animation-fill-mode: forwards;
-    visibility: hidden;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.c-l3 {
-    height: 100%;
+.c-s1 {
+    height: 80%;
+    width: auto;
     display: flex;
     justify-content: center;
 }
 
-.c-s1 {
+/* .c-s1 {
     height: 100%;
     display: flex;
     justify-content: center;
@@ -518,17 +568,16 @@ p {
     animation-fill-mode: forwards;
     visibility: hidden;
     z-index: 2;
-}
+} */
 
-.c-l3 img,
 .c-s1 img {
     max-width: 80vw;
     max-height: 80vw;
     object-fit: scale-down;
 }
 
-/* SPACE ELEVEN */
-.eleven {
+/* SPACE TWELVE & TWELVE */
+.twelve {
     width: 80%;
     height: 80%;
     position: absolute;
@@ -536,31 +585,80 @@ p {
     left: 50%;
     transform: translate(-50%, -50%);
     display: grid;
-    grid-template-columns: repeat(2, calc(50% - 40px));
+    grid-template-columns: 50% 50%;
     grid-template-rows: 100%;
-    column-gap: 80px;
 }
 
 .c-t6 {
     place-self: center;
     display: flex;
     justify-content: center;
+    grid-column-start: 1;
+    grid-row-start: 1;
 }
 
+/* .c-t6-12 {
+    animation: 1s fadeOut;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+} */
+
 .c-t6 img {
-    max-width: calc(40vw - 40px);
+    max-width: 40vw;
     max-height: 80vh;
     object-fit: scale-down;
+}
+
+/* SPACE THIRTEEN */
+.thirteen {
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
 }
 
 .c-t1 {
     place-self: center;
     display: flex;
     justify-content: center;
+    grid-column-start: 2;
+    grid-row-start: 1;
 }
 
 .c-t1 img {
-    max-width: calc(40vw - 40px);
+    max-width: 40vw;
     max-height: 80vh;
     object-fit: scale-down;
+}
+
+/* SPACE FOURTEEN */
+.fourteen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+}
+
+.c-n2 {
+    overflow: hidden;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    place-self: center;
+    display: flex;
+    justify-content: center;
+}
+
+.c-n2 img {
+    max-width: 80vw;
+    max-height: 80vh;
 }

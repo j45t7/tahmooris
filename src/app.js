@@ -6,7 +6,15 @@ import Gallery from './gallery';
 
 export default function App(props) {
     const [infoVisible, setInfoVisible] = useState(false);
-    const [currentComponent, setCurrentComponent] = useState('home');
+    const [currentComponent, setCurrentComponent] = useState();
+
+    useEffect(() => {
+        if (location.pathname === '/') {
+            setCurrentComponent('home');
+        } else {
+            setCurrentComponent('gallery');
+        }
+    }, []);
 
     const toggleInfo = () => {
         const info = document.querySelector('.toggle');
