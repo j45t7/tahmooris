@@ -26,11 +26,6 @@ ul {
     font-family: 'Manrope', Helvetica, sans-serif;
 }
 
-/* img {
-    width: 100%;
-    height: auto;
-} */
-
 a:link,
 a:visited,
 a:active {
@@ -72,9 +67,20 @@ main {
 }
 
 .background {
-    min-width: 100vw;
-    min-height: 100vh;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: auto;
     z-index: -10;
+    display: flex;
+    align-content: flex-end;
+    overflow: hidden;
+}
+
+.background img {
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
 }
 
 .animation {
@@ -100,8 +106,8 @@ p {
     right: 0;
     margin: 0.444em;
     z-index: 10;
-    height: 2em;
-    width: 2em;
+    height: 2.25em;
+    width: 2.25em;
     border-radius: 50%;
     background-color: black;
     border: 3px solid black;
@@ -115,7 +121,7 @@ p {
 }
 
 .gallery-link:active {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .nav {
@@ -128,8 +134,8 @@ p {
 }
 
 .toggle {
-    height: 2em;
-    width: 2em;
+    height: 2.25em;
+    width: 2.25em;
     background-color: black;
     border: 3px solid black;
     overflow: hidden;
@@ -152,6 +158,7 @@ p {
     height: 100%;
     width: 100%;
 }
+
 .gallery-nav {
     position: fixed;
     top: 0;
@@ -231,7 +238,6 @@ p {
 .c-f2 {
     grid-column: 7 / auto;
     grid-row: 1 / auto;
-    /* align-self: start; */
 }
 
 .c-l2 img {
@@ -243,26 +249,6 @@ p {
     object-fit: scale-down;
     max-height: calc(1 / 2 * 90vh);
 }
-
-/* .one {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 80%;
-}
-
-.c-v8 {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.c-v8 img {
-    max-width: 80vw;
-    object-fit: scale-down;
-} */
 
 /* SPACE TWO */
 .two {
@@ -300,7 +286,7 @@ p {
 
 .c-s14 img {
     max-width: 40vw;
-    max-height: calc(100vh - 100px);
+    max-height: 80vh;
     object-fit: scale-down;
 }
 
@@ -423,64 +409,6 @@ p {
 .six {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 80%;
-}
-
-.c-t11 {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.c-t11 img {
-    max-width: 80vw;
-    object-fit: scale-down;
-}
-/* SPACE SEVEN */
-.seven {
-    width: 80%;
-    height: 80%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: grid;
-    grid-template-columns: repeat(2, calc(50% - 40px));
-    grid-template-rows: 100%;
-    column-gap: 80px;
-}
-
-.c-t10 {
-    /* place-self: center;
-    display: flex;
-    justify-content: center; */
-}
-
-.c-t10 img {
-    max-width: calc(30vw - 40px);
-    max-height: 80vh;
-    object-fit: scale-down;
-}
-
-.c-t5 {
-    place-self: center;
-    display: flex;
-    justify-content: center;
-}
-
-.c-t5 img {
-    max-width: calc(35vw - 40px);
-    max-height: 80vh;
-    object-fit: scale-down;
-}
-
-/* SPACE EIGHT */
-.eight {
-    position: absolute;
-    top: 50%;
     left: 50px;
     transform: translate(0, -50%);
     width: 40%;
@@ -499,8 +427,8 @@ p {
     object-fit: scale-down;
 }
 
-/* SPACE NINE */
-.nine {
+/* SPACE SEVEN */
+.seven {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -521,8 +449,8 @@ p {
     object-fit: scale-down;
 }
 
-/* SPACE TEN */
-.ten {
+/* SPACE EIGHT */
+.eight {
     position: absolute;
     top: 50%;
     right: 50px;
@@ -543,44 +471,108 @@ p {
     object-fit: scale-down;
 }
 
-/* SPACE ELEVEN */
-.eleven {
+/* SPACE NINE */
+.nine {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
     height: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.c-s1 {
-    height: 80%;
-    width: auto;
-    display: flex;
-    justify-content: center;
-}
-
-/* .c-s1 {
+.c-t11 {
     height: 100%;
     display: flex;
     justify-content: center;
-    animation-delay: 1s;
-    animation: 1s fadeIn;
-    animation-fill-mode: forwards;
-    visibility: hidden;
-    z-index: 2;
-} */
+}
 
-.c-s1 img {
+.c-t11 img {
     max-width: 80vw;
-    max-height: 80vw;
     object-fit: scale-down;
 }
 
-/* SPACE TWELVE & TWELVE */
+/* SPACE TEN */
+.ten {
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: repeat(2, calc(50% - 40px));
+    grid-template-rows: 100%;
+    column-gap: 80px;
+}
+
+.c-t10 {
+    animation: 1s fadeIn;
+    animation-delay: 0.8s;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+}
+
+.c-t10 img {
+    max-width: calc(30vw - 40px);
+    max-height: 80vh;
+    object-fit: scale-down;
+}
+
+.c-t5 {
+    place-self: center;
+    display: flex;
+    justify-content: center;
+    animation: 1s fadeIn;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+}
+
+.c-t5 img {
+    max-width: calc(35vw - 40px);
+    max-height: 80vh;
+    object-fit: scale-down;
+}
+
+/* SPACE ELEVEN */
+.eleven {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: 45% 10% 45%;
+    grid-template-rows: 100%;
+}
+
+.c-n2 {
+    overflow: hidden;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    place-self: center;
+    display: flex;
+    justify-content: center;
+}
+
+.c-n3 {
+    overflow: hidden;
+    grid-column-start: 3;
+    grid-row-start: 1;
+    place-self: center;
+    display: flex;
+    justify-content: center;
+}
+
+.c-n2 img,
+.c-n3 img {
+    max-width: 36vw;
+    max-height: 80vh;
+}
+
+/* SPACE TWELVE */
 .twelve {
     width: 80%;
     height: 80%;
@@ -600,12 +592,6 @@ p {
     grid-column-start: 1;
     grid-row-start: 1;
 }
-
-/* .c-t6-12 {
-    animation: 1s fadeOut;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
-} */
 
 .c-t6 img {
     max-width: 40vw;
@@ -648,21 +634,20 @@ p {
     transform: translate(-50%, -50%);
     width: 80%;
     height: 80%;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.c-n2 {
-    overflow: hidden;
-    grid-column-start: 1;
-    grid-row-start: 1;
-    place-self: center;
+.c-t9 {
+    height: 100%;
+    width: auto;
     display: flex;
     justify-content: center;
 }
 
-.c-n2 img {
+.c-t9 img {
     max-width: 80vw;
-    max-height: 80vh;
+    max-height: 80vw;
+    object-fit: scale-down;
 }

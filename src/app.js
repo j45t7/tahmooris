@@ -4,8 +4,8 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import Home from './home';
 import Gallery from './gallery';
 
-export default function App(props) {
-    const [infoVisible, setInfoVisible] = useState(false);
+export default function App() {
+    const [infoVisible, setInfoVisible] = useState();
     const [currentComponent, setCurrentComponent] = useState();
 
     useEffect(() => {
