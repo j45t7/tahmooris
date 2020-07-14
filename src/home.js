@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // import animation from './animation';
-import animation from './animation-no-controls';
+// import animation from './animation-no-controls';
+import animation from './animation-points';
 // import modelAnimation from './animation-model';
 import textAnimation from './animation-text';
 

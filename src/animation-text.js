@@ -25,8 +25,8 @@ export default function textAnimation(container) {
             4 // intensity
         );
 
-        const mainLight = new THREE.DirectionalLight(0xffffff, 4);
-        mainLight.position.set(10, 10, 10);
+        const mainLight = new THREE.DirectionalLight(0xffffff, 8);
+        mainLight.position.set(3, 0, 10);
         // mainLight.position.copy(camera.position);
 
         scene.add(ambientLight, mainLight);
@@ -35,19 +35,25 @@ export default function textAnimation(container) {
     const createText = text => {
         const loader = new THREE.FontLoader();
         loader.load('fonts/Manrope-SemiBold-Regular.json', font => {
-            const geometry = new THREE.TextGeometry(text, {
+            const geometry = new THREE.TextBufferGeometry(text, {
                 font: font,
                 size: 1,
                 height: 0.5,
                 curveSegments: 10,
-                bevelEnabled: true,
+                bevelEnabled: false,
                 bevelThickness: 0.01,
                 bevelSize: 0.01,
                 bevelOffset: 0.05,
                 bevelSegments: 3,
             });
             geometry.center();
-            const material = new THREE.MeshNormalMaterial();
+            const material = new THREE.MeshPhysicalMaterial({
+                color: 0x000000,
+                clearcoat: 1,
+                metalness: 1,
+                reflectivity: 1,
+                transparency: 0.4,
+            });
 
             // const textureLoader = new THREE.TextureLoader();
             // const texture = textureLoader.load('images/vilnius.jpg');
@@ -59,6 +65,7 @@ export default function textAnimation(container) {
             // });
 
             mesh = new THREE.Mesh(geometry, material);
+            mesh.rotation.y = Math.PI / 2;
 
             scene.add(mesh);
         });
@@ -79,9 +86,9 @@ export default function textAnimation(container) {
         container.appendChild(renderer.domElement);
     };
 
-    const createControls = () => {
-        controls = new OrbitControls(camera, renderer.domElement);
-    };
+    // const createControls = () => {
+    //     controls = new OrbitControls(camera, renderer.domElement);
+    // };
 
     const init = () => {
         scene = new THREE.Scene();
@@ -89,8 +96,8 @@ export default function textAnimation(container) {
         createCamera();
         createLights();
         createRenderer();
-        createText('NADIA3D');
-        createControls();
+        createText('TAHMOORIS');
+        // createControls();
 
         renderer.setAnimationLoop(() => {
             update();
@@ -101,7 +108,7 @@ export default function textAnimation(container) {
     const update = () => {
         // mesh.rotation.z += 0.01;
         // mesh.rotation.x += 0.01;
-        // mesh.rotation.y += 0.01;
+        // mesh.rotation.y -= 0.01;
     };
 
     const render = () => {
