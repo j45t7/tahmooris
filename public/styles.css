@@ -81,6 +81,7 @@ main {
     width: 100vw;
     height: auto;
     min-height: 100vh;
+    object-fit: cover;
 }
 
 .animation {
@@ -100,12 +101,35 @@ p {
     line-height: 1.1;
 }
 
-.gallery-link {
+.nav {
     position: fixed;
     top: 0;
+    left: 0;
     right: 0;
     margin: 0.444em;
     z-index: 10;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.info-label-container,
+.gallery-label-container {
+    overflow: hidden;
+}
+
+.right-nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.gallery-link {
     height: 2.25em;
     width: 2.25em;
     border-radius: 50%;
@@ -124,13 +148,34 @@ p {
     transform: scale(1.2);
 }
 
-.nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0.444em;
-    z-index: 10;
+.gallery-label {
+    margin-right: 0.296em;
+    transition-property: transform;
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.gallery-label.on {
+    transform: translateX(0%);
+}
+
+.gallery-label.off {
+    transform: translateX(calc(100% + 0.3em));
+}
+
+.info-label {
+    margin-left: 0.296em;
+    transition-property: transform;
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.info-label.on {
+    transform: translateX(0%);
+}
+
+.info-label.off {
+    transform: translateX(calc(-100% - 0.3em));
 }
 
 .toggle {
@@ -151,6 +196,13 @@ p {
 
 .toggle.closed {
     transform: rotate(-90deg);
+}
+
+.info {
+    position: fixed;
+    left: 0;
+    top: 2.5em;
+    margin: 0.444em;
 }
 
 /* GALLERY */
@@ -204,6 +256,10 @@ p {
         visibility: hidden;
         opacity: 0;
     }
+}
+
+.space {
+    overflow: hidden;
 }
 
 /* .space {
@@ -262,7 +318,7 @@ p {
 
 .c-v8 {
     width: 100%;
-    height: auto;
+    height: 100%;
     overflow: hidden;
     grid-column-start: 1;
     grid-row-start: 1;
@@ -282,11 +338,12 @@ p {
 .c-v8 img {
     min-width: 100vw;
     min-height: 100vh;
+    object-fit: cover;
 }
 
 .c-s14 img {
-    max-width: 40vw;
-    max-height: 80vh;
+    max-width: 70vw;
+    max-height: 70vh;
     object-fit: scale-down;
 }
 
@@ -312,6 +369,7 @@ p {
 
 .c-s6 img {
     max-width: calc(40vw - 40px);
+    max-height: 80vh;
     object-fit: scale-down;
 }
 
@@ -348,7 +406,7 @@ p {
 }
 
 .c-s2 img {
-    max-width: 60vw;
+    max-width: calc(50vw - 20px);
     max-height: 60vh;
 }
 
@@ -389,11 +447,15 @@ p {
     animation-delay: 0.8s;
     animation-fill-mode: forwards;
     visibility: hidden;
+    z-index: -1;
 }
 
 .c-s4 img {
     object-fit: scale-down;
+    min-height: 40vh;
     max-height: 80vh;
+    max-width: 50vw;
+    min-width: 30vh;
 }
 
 .c-n4 img {
@@ -409,10 +471,11 @@ p {
 .six {
     position: absolute;
     top: 50%;
-    left: 50px;
-    transform: translate(0, -50%);
-    width: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
     height: 80%;
+    display: flex;
 }
 
 .c-t2 {
@@ -453,10 +516,12 @@ p {
 .eight {
     position: absolute;
     top: 50%;
-    right: 50px;
-    transform: translate(0, -50%);
-    width: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
     height: 80%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .c-t4 {
@@ -489,6 +554,7 @@ p {
 
 .c-t11 img {
     max-width: 80vw;
+    max-height: 80vh;
     object-fit: scale-down;
 }
 
@@ -574,18 +640,19 @@ p {
 
 /* SPACE TWELVE */
 .twelve {
-    width: 80%;
-    height: 80%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 100%;
 }
 
 .c-t6 {
+    height: 100%;
     place-self: center;
     display: flex;
     justify-content: center;
@@ -594,19 +661,19 @@ p {
 }
 
 .c-t6 img {
-    max-width: 40vw;
+    max-width: 80vw;
     max-height: 80vh;
     object-fit: scale-down;
 }
 
 /* SPACE THIRTEEN */
 .thirteen {
-    width: 80%;
-    height: 80%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 100%;
@@ -618,10 +685,11 @@ p {
     justify-content: center;
     grid-column-start: 2;
     grid-row-start: 1;
+    height: 100%;
 }
 
 .c-t1 img {
-    max-width: 40vw;
+    max-width: 80vw;
     max-height: 80vh;
     object-fit: scale-down;
 }
@@ -634,20 +702,16 @@ p {
     transform: translate(-50%, -50%);
     width: 80%;
     height: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .c-t9 {
     height: 100%;
-    width: auto;
     display: flex;
     justify-content: center;
 }
 
 .c-t9 img {
     max-width: 80vw;
-    max-height: 80vw;
+    max-height: 80vh;
     object-fit: scale-down;
 }

@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import OrbitControls from 'orbit-controls-es6';
 
-export default function textAnimation(container) {
+export default function animation(container) {
     let camera;
     let scene;
     let mesh;
