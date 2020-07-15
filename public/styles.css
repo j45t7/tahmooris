@@ -326,7 +326,7 @@ p {
     column-gap: 40px;
 }
 
-.c-v6 {
+.c-v1 {
     height: 100%;
     width: 100%;
     display: flex;
@@ -341,7 +341,7 @@ p {
     justify-content: center;
 }
 
-.c-v6 img {
+.c-v1 img {
     object-fit: cover;
     min-height: 100vh;
     max-width: calc(50vw - 20px);
