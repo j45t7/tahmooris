@@ -721,7 +721,7 @@ p {
 }
 
 .c-n5 img {
-    min-width: 100vw;
+    width: 100vw;
     min-height: 100vh;
     object-fit: cover;
 }
