@@ -4,6 +4,7 @@ export const files = {
     n2: 'https://tahmooris.s3.amazonaws.com/n2.jpg',
     n3: 'https://tahmooris.s3.amazonaws.com/n3.jpg',
     n4: 'https://tahmooris.s3.amazonaws.com/n4.jpg',
+    n5: 'https://tahmooris.s3.amazonaws.com/n5.jpg',
     s2: 'https://tahmooris.s3.amazonaws.com/s2.jpg',
     s4: 'https://tahmooris.s3.amazonaws.com/s4.jpg',
     s6: 'https://tahmooris.s3.amazonaws.com/s6.jpg',

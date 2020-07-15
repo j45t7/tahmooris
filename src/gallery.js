@@ -172,6 +172,9 @@ export default function Gallery(props) {
             )}
             {space === 14 && (
                 <div className='space fourteen'>
+                    <div className='c-n5'>
+                        <img src={image.n5} />
+                    </div>
                     <div className='c-t9'>
                         <img src={image.t9} />
                     </div>
