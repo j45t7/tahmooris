@@ -286,14 +286,14 @@ p {
 }
 
 .c-l2 {
-    grid-column: 1 / auto;
+    grid-column: 1 / 6;
     grid-row: 3 / 13;
     align-self: end;
 }
 
 .c-f2 {
-    grid-column: 7 / auto;
-    grid-row: 1 / auto;
+    grid-column: 7 / 11;
+    grid-row: 1 / 8;
 }
 
 .c-l2 img {
@@ -430,8 +430,8 @@ p {
 }
 
 .c-n4 {
-    grid-column: 1 / auto;
-    grid-row: 1 / auto;
+    grid-column: 1 / 4;
+    grid-row: 1 / 5;
     animation: 1s fadeIn;
     animation-delay: 0.3s;
     animation-fill-mode: forwards;
@@ -439,7 +439,7 @@ p {
 }
 
 .c-s7 {
-    grid-column: 3 / auto;
+    grid-column: 3 / 6;
     grid-row: 7 / 13;
     align-self: end;
     display: flex;
@@ -619,8 +619,6 @@ p {
     grid-column-start: 1;
     grid-row-start: 1;
     place-self: center;
-    display: flex;
-    justify-content: center;
 }
 
 .c-n3 {
@@ -628,8 +626,6 @@ p {
     grid-column-start: 3;
     grid-row-start: 1;
     place-self: center;
-    display: flex;
-    justify-content: center;
 }
 
 .c-n2 img,
