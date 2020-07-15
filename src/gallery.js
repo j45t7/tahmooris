@@ -61,7 +61,7 @@ export default function Gallery(props) {
             {space === 1 && (
                 <div className='space one'>
                     <div className='c-l2'>
-                        <img src='/images/l2.jpg' />
+                        <img src={image.l2} />
                     </div>
                     <div className='c-f2'>
                         <img src={image.f2} />
