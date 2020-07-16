@@ -93,7 +93,7 @@ main {
     z-index: 1;
 }
 
-/* INFO */
+/* NAV */
 p {
     text-transform: uppercase;
     font-size: 1.5em;
@@ -140,8 +140,11 @@ p {
 }
 
 .gallery-link:hover,
-.toggle:hover {
+.toggle:hover,
+.gallery-link:focus,
+.toggle:focus {
     background-color: transparent;
+    outline: none;
 }
 
 .gallery-link:active {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { files as image } from './files';
 
 export default function Gallery(props) {
@@ -7,6 +7,7 @@ export default function Gallery(props) {
     const [spaces, setSpaces] = useState([]);
     const [nextSpace, setNextSpace] = useState();
     const [previousSpace, setPreviousSpace] = useState();
+    const history = useHistory();
 
     useEffect(() => {
         setSpaces([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]);
@@ -14,6 +15,7 @@ export default function Gallery(props) {
     }, []);
 
     useEffect(() => {
+        document.addEventListener('keydown', keyNav);
         if (space === spaces.length) {
             setNextSpace(1);
         } else {
@@ -24,6 +26,9 @@ export default function Gallery(props) {
         } else {
             setPreviousSpace(space - 1);
         }
+        return () => {
+            document.removeEventListener('keydown', keyNav);
+        };
     }, [space]);
 
     const clickNext = () => {
@@ -39,6 +44,27 @@ export default function Gallery(props) {
             setSpace(spaces.length);
         } else {
             setSpace(space - 1);
+        }
+    };
+
+    const keyNav = e => {
+        if (e.key === 'ArrowLeft' || e.key === 'Left') {
+            if (space === 1) {
+                history.push(`/work/${spaces.length}`);
+                setSpace(spaces.length);
+            } else {
+                history.push(`/work/${space - 1}`);
+                setSpace(space - 1);
+            }
+        }
+        if (e.key === 'ArrowRight' || e.key === 'Right') {
+            if (space === spaces.length) {
+                history.push(`/work/1`);
+                setSpace(1);
+            } else {
+                history.push(`/work/${space + 1}`);
+                setSpace(space + 1);
+            }
         }
     };
 

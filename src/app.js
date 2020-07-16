@@ -7,6 +7,7 @@ import Gallery from './gallery';
 export default function App() {
     const [infoVisible, setInfoVisible] = useState();
     const [currentComponent, setCurrentComponent] = useState();
+    let mouseDown = false;
 
     useEffect(() => {
         if (location.pathname === '/') {
@@ -16,8 +17,9 @@ export default function App() {
         }
     }, []);
 
-    const toggleInfo = () => {
+    const toggleInfo = e => {
         const info = document.querySelector('.toggle');
+        // if (mouseDown || e.key === 'Enter') {
         if (!infoVisible) {
             info.classList.remove('closed');
             info.classList.add('open');
@@ -27,7 +29,35 @@ export default function App() {
             info.classList.add('closed');
             setInfoVisible(false);
         }
+        // }
     };
+
+    const toggleInfoLabel = e => {
+        const infoLabel = document.querySelector('.info-label');
+        if (infoLabel.classList.contains('off')) {
+            infoLabel.classList.remove('off');
+            infoLabel.classList.add('on');
+        } else {
+            infoLabel.classList.remove('on');
+            infoLabel.classList.add('off');
+        }
+    };
+
+    // const handleMouseDown = e => {
+    //     mouseDown = true;
+    // };
+
+    // const handleMouseUp = e => {
+    //     mouseDown = false;
+    // };
+
+    // const handleInfoFocus = e => {
+    //     if (mouseDown) {
+    //         toggleInfo();
+    //     } else {
+    //         toggleInfoLabel();
+    //     }
+    // };
 
     const handleGalleryMouse = e => {
         const workLabel = document.querySelector('.gallery-label');
@@ -38,18 +68,6 @@ export default function App() {
         if (e.type === 'mouseleave') {
             workLabel.classList.remove('on');
             workLabel.classList.add('off');
-        }
-    };
-
-    const handleInfoMouse = e => {
-        const infoLabel = document.querySelector('.info-label');
-        if (e.type === 'mouseenter') {
-            infoLabel.classList.remove('off');
-            infoLabel.classList.add('on');
-        }
-        if (e.type === 'mouseleave') {
-            infoLabel.classList.remove('on');
-            infoLabel.classList.add('off');
         }
     };
 
@@ -67,13 +85,16 @@ export default function App() {
                 <div className='nav'>
                     <div className='left-nav'>
                         <div
+                            // onKeyDown={toggleInfo}
+                            // onMouseDown={handleMouseDown}
+                            // onMouseUp={handleMouseUp}
+                            // onFocus={handleInfoFocus}
+                            // onBlur={toggleInfoLabel}
+                            // onFocus={infoFocus}
+                            // onBlur={infoBlur}
                             onClick={toggleInfo}
-                            onMouseEnter={e => {
-                                handleInfoMouse(e);
-                            }}
-                            onMouseLeave={e => {
-                                handleInfoMouse(e);
-                            }}
+                            onMouseEnter={toggleInfoLabel}
+                            onMouseLeave={toggleInfoLabel}
                             className='toggle closed'></div>
                         <div className='info-label-container'>
                             <div className='info-label off'>
