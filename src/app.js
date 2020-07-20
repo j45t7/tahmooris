@@ -8,56 +8,77 @@ export default function App() {
     const [infoVisible, setInfoVisible] = useState();
     const [currentComponent, setCurrentComponent] = useState();
     let mouseDown = false;
+    let info, infoLabel;
 
     useEffect(() => {
         if (location.pathname === '/') {
             setCurrentComponent('home');
         } else {
-            setCurrentComponent('gallery');
+            setCurrentComponent('work');
         }
     }, []);
 
     const toggleInfo = e => {
-        const info = document.querySelector('.toggle');
-        // if (mouseDown || e.key === 'Enter') {
-        if (!infoVisible) {
-            info.classList.remove('closed');
-            info.classList.add('open');
-            setInfoVisible(true);
-        } else {
-            info.classList.remove('open');
-            info.classList.add('closed');
-            setInfoVisible(false);
+        info = document.querySelector('.toggle');
+        if (mouseDown || e.key === 'Enter' || e.type === 'touchend') {
+            if (!infoVisible) {
+                info.classList.remove('closed');
+                info.classList.add('open');
+                setInfoVisible(true);
+            } else {
+                info.classList.remove('open');
+                info.classList.add('closed');
+                setInfoVisible(false);
+            }
         }
-        // }
     };
 
     const toggleInfoLabel = e => {
-        const infoLabel = document.querySelector('.info-label');
+        infoLabel = document.querySelector('.info-label');
+        info = document.querySelector('.toggle');
+        if (e.type === 'blur') {
+            return;
+        }
         if (infoLabel.classList.contains('off')) {
             infoLabel.classList.remove('off');
             infoLabel.classList.add('on');
+            console.log('one', e.type);
         } else {
             infoLabel.classList.remove('on');
             infoLabel.classList.add('off');
+            console.log('two', e.type);
+        }
+        if (e.type === 'mousedown') {
+            if (document.activeElement.classList.contains('toggle')) {
+                info.blur();
+                toggleInfo();
+            }
+        }
+        if (e.type === 'mouseleave') {
+            if (document.activeElement.classList.contains('toggle')) {
+                info.blur();
+            }
         }
     };
 
-    // const handleMouseDown = e => {
-    //     mouseDown = true;
-    // };
+    const handleMouseDown = e => {
+        console.log('mouse down');
+        mouseDown = true;
+    };
 
-    // const handleMouseUp = e => {
-    //     mouseDown = false;
-    // };
+    const handleMouseUp = e => {
+        console.log('mouse up');
+        mouseDown = false;
+    };
 
-    // const handleInfoFocus = e => {
-    //     if (mouseDown) {
-    //         toggleInfo();
-    //     } else {
-    //         toggleInfoLabel();
-    //     }
-    // };
+    const handleInfoFocus = e => {
+        console.log('focus');
+        if (mouseDown) {
+            toggleInfo();
+        } else {
+            toggleInfoLabel();
+        }
+    };
 
     const handleGalleryMouse = e => {
         const workLabel = document.querySelector('.gallery-label');
@@ -71,9 +92,9 @@ export default function App() {
         }
     };
 
-    const handleClick = () => {
+    const handleClick = e => {
         if (currentComponent == 'home') {
-            setCurrentComponent('gallery');
+            setCurrentComponent('work');
         } else {
             setCurrentComponent('home');
         }
@@ -83,72 +104,113 @@ export default function App() {
         <BrowserRouter>
             <>
                 <div className='nav'>
+                    <div className='left-nav-touch'>
+                        <div
+                            className='info-label-touch'
+                            onTouchEnd={toggleInfo}>
+                            <p>
+                                <span className='long-text'>INFORMATION</span>
+                                <span className='short-text'>INFO</span>
+                            </p>
+                        </div>
+                    </div>
                     <div className='left-nav'>
                         <div
-                            // onKeyDown={toggleInfo}
-                            // onMouseDown={handleMouseDown}
-                            // onMouseUp={handleMouseUp}
-                            // onFocus={handleInfoFocus}
-                            // onBlur={toggleInfoLabel}
-                            // onFocus={infoFocus}
-                            // onBlur={infoBlur}
-                            onClick={toggleInfo}
+                            tabIndex='1'
+                            onKeyDown={toggleInfo}
+                            onMouseDown={handleMouseDown}
+                            onMouseUp={handleMouseUp}
+                            onFocus={handleInfoFocus}
+                            onBlur={toggleInfoLabel}
+                            // onClick={toggleInfo}
                             onMouseEnter={toggleInfoLabel}
                             onMouseLeave={toggleInfoLabel}
                             className='toggle closed'></div>
                         <div className='info-label-container'>
                             <div className='info-label off'>
-                                <p>INFORMATION</p>
+                                <p>
+                                    <span className='long-text'>
+                                        INFORMATION
+                                    </span>
+                                    <span className='short-text'>INFO</span>
+                                </p>
                             </div>
                         </div>
                     </div>
                     {infoVisible && (
                         <div className='info'>
                             <p>Tahmooris Ramazankhani</p>
-                            <p>Berlin</p>
+                            <p>Photographer</p>
+                            <p>Berlin &amp; London</p>
                             <p>tahmooris@gmail.com</p>
                             <p>Website by Tim Chandler</p>
                         </div>
                     )}
                     {currentComponent == 'home' && (
-                        <div className='right-nav'>
-                            <div className='gallery-label-container'>
-                                <div className='gallery-label off'>
-                                    <p>WORK</p>
-                                </div>
+                        <>
+                            <div className='right-nav-touch'>
+                                <Link onClick={handleClick} to='/work/1'>
+                                    <div className='gallery-label-touch'>
+                                        <p className='label-touch'>WORK</p>
+                                    </div>
+                                </Link>
                             </div>
-                            <Link
-                                onMouseEnter={e => {
-                                    handleGalleryMouse(e);
-                                }}
-                                onMouseLeave={e => {
-                                    handleGalleryMouse(e);
-                                }}
-                                onClick={handleClick}
-                                to='/work/1'>
-                                <div className='gallery-link' />
-                            </Link>
-                        </div>
+                            <div className='right-nav'>
+                                <div className='gallery-label-container'>
+                                    <div className='gallery-label off'>
+                                        <p>WORK</p>
+                                    </div>
+                                </div>
+                                <Link
+                                    tabIndex='-1'
+                                    onMouseEnter={e => {
+                                        handleGalleryMouse(e);
+                                    }}
+                                    onMouseLeave={e => {
+                                        handleGalleryMouse(e);
+                                    }}
+                                    onClick={handleClick}
+                                    to='/work/1'>
+                                    <div
+                                        tabIndex='2'
+                                        className='gallery-link'
+                                    />
+                                </Link>
+                            </div>
+                        </>
                     )}
-                    {currentComponent == 'gallery' && (
-                        <div className='right-nav'>
-                            <div className='gallery-label-container'>
-                                <div className='gallery-label off'>
-                                    <p>HOME</p>
-                                </div>
+                    {currentComponent == 'work' && (
+                        <>
+                            <div className='right-nav-touch'>
+                                <Link onClick={handleClick} to='/'>
+                                    <div className='gallery-label-touch'>
+                                        <p className='label-touch'>HOME</p>
+                                    </div>
+                                </Link>
                             </div>
-                            <Link
-                                onMouseEnter={e => {
-                                    handleGalleryMouse(e);
-                                }}
-                                onMouseLeave={e => {
-                                    handleGalleryMouse(e);
-                                }}
-                                onClick={handleClick}
-                                to='/'>
-                                <div className='gallery-link' />
-                            </Link>
-                        </div>
+                            <div className='right-nav'>
+                                <div className='gallery-label-container'>
+                                    <div className='gallery-label off'>
+                                        <p>HOME</p>
+                                    </div>
+                                </div>
+                                <Link
+                                    tabIndex='-1'
+                                    onMouseEnter={e => {
+                                        handleGalleryMouse(e);
+                                    }}
+                                    onMouseLeave={e => {
+                                        handleGalleryMouse(e);
+                                    }}
+                                    onClick={handleClick}
+                                    to='/'>
+                                    <div
+                                        tabIndex='2'
+                                        className='gallery-link'
+                                    />
+                                </Link>
+                            </div>
+                        </>
                     )}
                 </div>
                 <Route exact path='/' component={Home} />

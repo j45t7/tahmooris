@@ -4,13 +4,12 @@ import { files as image } from './files';
 
 export default function Gallery(props) {
     const [space, setSpace] = useState();
-    const [spaces, setSpaces] = useState([]);
     const [nextSpace, setNextSpace] = useState();
     const [previousSpace, setPreviousSpace] = useState();
     const history = useHistory();
+    const spaces = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
     useEffect(() => {
-        setSpaces([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]);
         setSpace(parseInt(props.match.params.space));
     }, []);
 

@@ -28,14 +28,10 @@ ul {
 
 a:link,
 a:visited,
-a:active {
-    color: black;
-    text-decoration: none;
-}
-
+a:active,
 a:hover {
     color: black;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /* FONT SETUP */
@@ -98,7 +94,7 @@ p {
     text-transform: uppercase;
     font-size: 1.5em;
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.2;
 }
 
 .nav {
@@ -205,6 +201,7 @@ p {
     position: fixed;
     left: 0;
     top: 2.5em;
+    bottom: auto;
     margin: 0.444em;
 }
 
@@ -733,4 +730,69 @@ p {
     max-width: 70vw;
     max-height: 70vh;
     object-fit: scale-down;
+}
+
+/* MEDIA QUERIES */
+.short-text {
+    display: none;
+}
+
+.left-nav-touch,
+.right-nav-touch {
+    display: none;
+}
+
+/* .info-label-touch {
+    margin-left: 0.296em;
+} */
+
+@media (hover: none), (hover: on-demand) {
+    .left-nav-touch,
+    .right-nav-touch {
+        display: flex;
+    }
+    /* .long-text,
+    .short-text {
+        text-decoration: underline;
+    } */
+    .left-nav,
+    .right-nav {
+        display: none;
+    }
+    .info {
+        top: auto;
+        bottom: 0;
+    }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    html {
+        font-size: 14px;
+    }
+    .short-text {
+        display: inline-block;
+    }
+    .long-text {
+        display: none;
+    }
+    /* .info p {
+        font-size: 1.3em;
+    } */
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 }
