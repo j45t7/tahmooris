@@ -2,6 +2,7 @@
 html {
     box-sizing: border-box;
     font-size: 16px;
+    overflow: hidden;
 }
 
 *,
@@ -742,6 +743,10 @@ p {
     display: none;
 }
 
+.gallery-nav-touch {
+    display: none;
+}
+
 /* .info-label-touch {
     margin-left: 0.296em;
 } */
@@ -756,12 +761,22 @@ p {
         text-decoration: underline;
     } */
     .left-nav,
-    .right-nav {
+    .right-nav,
+    .gallery-nav {
         display: none;
     }
     .info {
         top: auto;
         bottom: 0;
+    }
+    .gallery-nav-touch {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
     }
 }
 

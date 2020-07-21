@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { Swipeable } from 'react-swipeable';
 import { files as image } from './files';
 
 export default function Gallery(props) {
@@ -47,6 +48,15 @@ export default function Gallery(props) {
     };
 
     const keyNav = e => {
+        if (e.key === 'ArrowRight' || e.key === 'Right') {
+            if (space === spaces.length) {
+                history.push(`/work/1`);
+                setSpace(1);
+            } else {
+                history.push(`/work/${space + 1}`);
+                setSpace(space + 1);
+            }
+        }
         if (e.key === 'ArrowLeft' || e.key === 'Left') {
             if (space === 1) {
                 history.push(`/work/${spaces.length}`);
@@ -56,14 +66,25 @@ export default function Gallery(props) {
                 setSpace(space - 1);
             }
         }
-        if (e.key === 'ArrowRight' || e.key === 'Right') {
-            if (space === spaces.length) {
-                history.push(`/work/1`);
-                setSpace(1);
-            } else {
-                history.push(`/work/${space + 1}`);
-                setSpace(space + 1);
-            }
+    };
+
+    const swipeNext = () => {
+        if (space === spaces.length) {
+            history.push(`/work/1`);
+            setSpace(1);
+        } else {
+            history.push(`/work/${space + 1}`);
+            setSpace(space + 1);
+        }
+    };
+
+    const swipePrevious = () => {
+        if (space === 1) {
+            history.push(`/work/${spaces.length}`);
+            setSpace(spaces.length);
+        } else {
+            history.push(`/work/${space - 1}`);
+            setSpace(space - 1);
         }
     };
 
@@ -83,6 +104,11 @@ export default function Gallery(props) {
                     <div className='next'></div>
                 </Link>
             </div>
+            <Swipeable
+                onSwipedLeft={swipeNext}
+                onSwipedRight={swipePrevious}
+                className='gallery-nav-touch'
+            />
             {space === 1 && (
                 <div className='space one'>
                     <div className='c-l2'>
