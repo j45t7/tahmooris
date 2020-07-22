@@ -108,10 +108,7 @@ export default function App() {
                         <div
                             className='info-label-touch'
                             onTouchEnd={toggleInfo}>
-                            <p>
-                                <span className='long-text'>INFORMATION</span>
-                                <span className='short-text'>INFO</span>
-                            </p>
+                            <p>INFO</p>
                         </div>
                     </div>
                     <div className='left-nav'>
@@ -128,12 +125,7 @@ export default function App() {
                             className='toggle closed'></div>
                         <div className='info-label-container'>
                             <div className='info-label off'>
-                                <p>
-                                    <span className='long-text'>
-                                        INFORMATION
-                                    </span>
-                                    <span className='short-text'>INFO</span>
-                                </p>
+                                <p>INFORMATION</p>
                             </div>
                         </div>
                     </div>
@@ -141,7 +133,7 @@ export default function App() {
                         <div className='info'>
                             <p>Tahmooris Ramazankhani</p>
                             <p>Photographer</p>
-                            <p>Berlin &amp; London</p>
+                            <p>Berlin</p>
                             <p>tahmooris@gmail.com</p>
                             <p>Website by Tim Chandler</p>
                         </div>

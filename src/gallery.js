@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Swipeable } from 'react-swipeable';
-import { files as image } from './files';
+import { large, small } from './files';
 
 export default function Gallery(props) {
     const [space, setSpace] = useState();
@@ -112,122 +112,227 @@ export default function Gallery(props) {
             {space === 1 && (
                 <div className='space one'>
                     <div className='c-l2'>
-                        <img src={image.l2} />
+                        <img
+                            srcSet={`${large.l2} 800w, ${small.l2} 300w`}
+                            sizes='(max-width: 600px) 300px, 800px'
+                            src={large.l2}
+                            alt='A hand in water'
+                        />
                     </div>
                     <div className='c-f2'>
-                        <img src={image.f2} />
+                        <img
+                            srcSet={`${large.f2} 800w, ${small.f2} 300w`}
+                            sizes='(max-width: 600px) 300px, 800px'
+                            src={large.f2}
+                            alt='A rose bush in front of a shed'
+                        />
                     </div>
                 </div>
             )}
             {space === 2 && (
                 <div className='space two'>
                     <div className='c-v8'>
-                        <img src={image.v8} />
+                        <img
+                            srcSet={`${large.v8} 1400w, ${small.v8} 600w`}
+                            sizes='(max-width: 600px) 100vw, 100vw'
+                            src={large.v8}
+                            alt='A city covered in winter snow'
+                        />
                     </div>
                     <div className='c-s14'>
-                        <img src={image.s14} />
+                        <img
+                            srcSet={`${large.s14} 800w, ${small.s14} 600w`}
+                            sizes='(max-width: 600px) 600px, 800px'
+                            src={large.s14}
+                            alt='The neck and armpit of a man'
+                        />
                     </div>
                 </div>
             )}
             {space === 3 && (
                 <div className='space three'>
                     <div className='c-s6'>
-                        <img src={image.s6} />
+                        <img
+                            srcSet={`${large.s6} 800w, ${small.s6} 600w`}
+                            sizes='(max-width: 600px) 600px, 800px'
+                            src={large.s6}
+                            alt='The head and shoulders of a naked woman viewed from behind'
+                        />
                     </div>
                 </div>
             )}
             {space === 4 && (
                 <div className='space four'>
                     <div className='c-v1'>
-                        <img src={image.v1} />
+                        <img
+                            srcSet={`${large.v1} 800w, ${small.v1} 600w`}
+                            sizes='(max-width: 600px) 100vw, 50vw'
+                            src={large.v1}
+                            alt='A forest covered in winter snow'
+                        />
                     </div>
                     <div className='c-s2'>
-                        <img src={image.s2} />
+                        <img
+                            srcSet={`${large.s2} 800w, ${small.s2} 600w`}
+                            sizes='(max-width: 600px) 600px, 800px'
+                            src={large.s2}
+                            alt='The wet face of a young man viewed in profile'
+                        />
                     </div>
                 </div>
             )}
             {space === 5 && (
                 <div className='space five'>
                     <div className='c-s4'>
-                        <img src={image.s4} />
+                        <img
+                            srcSet={`${large.s4} 800w, ${small.s4} 600w`}
+                            sizes='(max-width: 600px) 600px, 800px'
+                            src={large.s4}
+                            alt='The face of a young woman lying in grass, viewed in profile'
+                        />
                     </div>
                     <div className='c-s7'>
-                        <img src={image.s7} />
+                        <img src={large.s7} alt='A dead flower' />
                     </div>
                     <div className='c-n4'>
-                        <img src={image.n4} />
+                        <img
+                            srcSet={`${large.n4} 800w, ${small.n4} 600w`}
+                            sizes='(max-width: 600px) 600px, 800px'
+                            src={large.n4}
+                            alt='An icy river by night'
+                        />
                     </div>
                 </div>
             )}
             {space === 6 && (
                 <div className='space six'>
                     <div className='c-t2'>
-                        <img src={image.t2} />
+                        <img
+                            srcSet={`${large.t2} 800w, ${small.t2} 600w`}
+                            sizes='(max-width: 600px) 600px, 800px'
+                            src={large.t2}
+                            alt='The face of a young man in half-profile'
+                        />
                     </div>
                 </div>
             )}
             {space === 7 && (
                 <div className='space seven'>
                     <div className='c-t3'>
-                        <img src={image.t3} />
+                        <img
+                            srcSet={`${large.t3} 800w, ${small.t3} 600w`}
+                            sizes='(max-width: 600px) 600px, 800px'
+                            src={large.t3}
+                            alt='The face and upper torso of a young woman'
+                        />
                     </div>
                 </div>
             )}
             {space === 8 && (
                 <div className='space eight'>
                     <div className='c-t4'>
-                        <img src={image.t4} />
+                        <img
+                            srcSet={`${large.t4} 800w, ${small.t4} 600w`}
+                            sizes='(max-width: 600px) 600px, 800px'
+                            src={large.t4}
+                            alt='The face and upper torso of a shirtless young man'
+                        />
                     </div>
                 </div>
             )}
             {space === 9 && (
                 <div className='space nine'>
                     <div className='c-t11'>
-                        <img src={image.t11} />
+                        <img
+                            srcSet={`${large.t11} 800w, ${small.t11} 600w`}
+                            sizes='(max-width: 600px) 600px, 800px'
+                            src={large.t11}
+                            alt='A close-up view of the face of a young person with a bee on it'
+                        />
                     </div>
                 </div>
             )}
             {space === 10 && (
                 <div className='space ten'>
                     <div className='c-t10'>
-                        <img src={image.t10} />
+                        <img
+                            srcSet={`${large.t10} 800w, ${small.t10} 600w`}
+                            sizes='(max-width: 600px) 600px, 800px'
+                            src={large.t10}
+                            alt='The upper torso of a man from the side'
+                        />
                     </div>
                     <div className='c-t5'>
-                        <img src={image.t5} />
+                        <img
+                            srcSet={`${large.t5} 800w, ${small.t5} 600w`}
+                            sizes='(max-width: 600px) 600px, 800px'
+                            src={large.t5}
+                            alt='The face and shoulders of a young woman, half turned'
+                        />
                     </div>
                 </div>
             )}
             {space === 11 && (
                 <div className='space eleven'>
                     <div className='c-n2'>
-                        <img src={image.n2} />
+                        <img
+                            srcSet={`${large.n2} 800w, ${small.n2} 600w`}
+                            sizes='(max-width: 600px) 600px, 800px'
+                            src={large.n2}
+                            alt='Waves breaking in the sea'
+                        />
                     </div>
                     <div className='c-n3'>
-                        <img src={image.n3} />
+                        <img
+                            srcSet={`${large.n3} 800w, ${small.n3} 600w`}
+                            sizes='(max-width: 600px) 600px, 800px'
+                            src={large.n3}
+                            alt='Two white swans at night'
+                        />
                     </div>
                 </div>
             )}
             {space === 12 && (
                 <div className='space twelve'>
                     <div className='c-t6'>
-                        <img src={image.t6} />
+                        <img
+                            srcSet={`${large.t6} 800w, ${small.t6} 600w`}
+                            sizes='(max-width: 600px) 600px, 800px'
+                            src={large.t6}
+                            alt='The head and shoulders of a shirtless young man, half profile'
+                        />
                     </div>
                 </div>
             )}
             {space === 13 && (
                 <div className='space thirteen'>
                     <div className='c-t1'>
-                        <img src={image.t1} />
+                        <img
+                            srcSet={`${large.t1} 800w, ${small.t1} 600w`}
+                            sizes='(max-width: 600px) 600px, 800px'
+                            src={large.t1}
+                            alt='The head and upper torso of a young man, half profile'
+                        />
                     </div>
                 </div>
             )}
             {space === 14 && (
                 <div className='space fourteen'>
                     <div className='c-n5'>
-                        <img src={image.n5} />
+                        <img
+                            srcSet={`${large.n5} 1600w, ${small.n5} 1000w`}
+                            sizes='(max-width: 600px) 100vw, 100vw'
+                            src={large.n5}
+                            alt='Vegetation'
+                        />
                     </div>
                     <div className='c-t9'>
-                        <img src={image.t9} />
+                        <img
+                            srcSet={`${large.t9} 800w, ${small.t9} 600w`}
+                            sizes='(max-width: 600px) 600px, 800px'
+                            src={large.t9}
+                            alt='The head and upper torso of a shirtless man, from behind'
+                        />
                     </div>
                 </div>
             )}
