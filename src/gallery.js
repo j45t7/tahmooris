@@ -320,7 +320,7 @@ export default function Gallery(props) {
                 <div className='space fourteen'>
                     <div className='c-n5'>
                         <img
-                            srcSet={`${large.n5} 1600w, ${small.n5} 1000w`}
+                            srcSet={`${large.n5} 1800w, ${small.n5} 1200w`}
                             sizes='(max-width: 600px) 100vw, 100vw'
                             src={large.n5}
                             alt='Vegetation'
