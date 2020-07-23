@@ -163,12 +163,12 @@ export default function Gallery(props) {
             )}
             {space === 4 && (
                 <div className='space four'>
-                    <div className='c-v1'>
+                    <div className='c-v7'>
                         <img
-                            srcSet={`${large.v1} 800w, ${small.v1} 600w`}
+                            srcSet={`${large.v7} 800w, ${small.v7} 600w`}
                             sizes='(max-width: 600px) 100vw, 50vw'
-                            src={large.v1}
-                            alt='A forest covered in winter snow'
+                            src={large.v7}
+                            alt='Aerial view of a person walking through a snowy forest in winter'
                         />
                     </div>
                     <div className='c-s2'>

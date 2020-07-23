@@ -12,10 +12,10 @@ export default function Home() {
         <div className='home'>
             <div className='background'>
                 <img
-                    srcSet={`${large.v7} 1600w, ${small.v7} 600w`}
+                    srcSet={`${large.v1} 800w, ${small.v1} 600w`}
                     sizes='(max-width: 600px) 100vw, 100vw'
-                    src={large.v7}
-                    alt='Aerial view of a person walking through a snowy forest in winter'
+                    src={large.v1}
+                    alt='Aerial view of a snowy forest in winter'
                 />
             </div>
             <div className='animation' />

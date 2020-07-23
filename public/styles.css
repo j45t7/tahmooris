@@ -67,10 +67,10 @@ main {
     position: absolute;
     bottom: 0px;
     width: 100%;
-    height: auto;
+    height: 100%;
     z-index: -10;
     display: flex;
-    align-content: flex-end;
+    align-items: center;
     overflow: hidden;
 }
 
@@ -263,16 +263,6 @@ p {
     overflow: hidden;
 }
 
-/* .space {
-    position: relative;
-    height: 100%;
-    width: 100%;
-} */
-
-/* .space > * {
-    position: absolute;
-} */
-
 /* SPACE ONE */
 .one {
     position: absolute;
@@ -383,11 +373,11 @@ p {
     column-gap: 40px;
 }
 
-.c-v1 {
+.c-v7 {
     height: 100%;
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .c-s2 {
@@ -398,7 +388,7 @@ p {
     justify-content: center;
 }
 
-.c-v1 img {
+.c-v7 img {
     object-fit: cover;
     min-height: 100vh;
     max-width: calc(50vw - 20px);
@@ -562,7 +552,7 @@ p {
     width: 80%;
     height: 80%;
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: grid;
@@ -579,13 +569,14 @@ p {
 }
 
 .c-t10 img {
-    max-width: calc(30vw - 40px);
+    max-width: calc(25vw - 40px);
     max-height: 80vh;
     object-fit: scale-down;
 }
 
 .c-t5 {
-    place-self: center;
+    justify-self: center;
+    align-self: end;
     display: flex;
     justify-content: center;
     animation: 1s fadeIn;
@@ -595,7 +586,7 @@ p {
 }
 
 .c-t5 img {
-    max-width: calc(35vw - 40px);
+    max-width: calc(30vw - 40px);
     max-height: 80vh;
     object-fit: scale-down;
 }
@@ -704,8 +695,6 @@ p {
     grid-column-start: 1;
     grid-row-start: 1;
     place-self: center;
-    /* display: flex;
-    justify-content: center; */
 }
 
 .c-t9 {
@@ -714,7 +703,6 @@ p {
     place-self: center;
     display: flex;
     justify-content: center;
-    /* padding-right: 50vw; */
 }
 
 .c-n5 img {
@@ -731,10 +719,7 @@ p {
 
 /* MEDIA QUERIES */
 .left-nav-touch,
-.right-nav-touch {
-    display: none;
-}
-
+.right-nav-touch,
 .gallery-nav-touch {
     display: none;
 }
@@ -765,7 +750,7 @@ p {
     }
 }
 
-/* Phones */
+/* Smart phones */
 @media only screen and (max-width: 600px) {
     * {
         animation-name: none;
@@ -785,7 +770,6 @@ p {
         grid-template-columns: 100%;
         grid-template-rows: 100%;
     }
-
     .c-l2 {
         grid-column: 1;
         grid-row: 1;
@@ -794,7 +778,6 @@ p {
         display: flex;
         align-content: center;
     }
-
     .c-f2 {
         grid-column: 1;
         grid-row: 1;
@@ -804,22 +787,18 @@ p {
         flex-direction: row-reverse;
         align-content: center;
     }
-
     .c-l2 img {
         object-fit: scale-down;
         max-height: 40vh;
     }
-
     .c-f2 img {
         object-fit: scale-down;
         max-height: 30vh;
     }
-
     /* SPACE THREE */
     .three {
         justify-content: center;
     }
-
     /* SPACE FOUR */
     .four {
         width: 100%;
@@ -828,7 +807,7 @@ p {
         grid-template-columns: 100%;
         grid-template-rows: 100%;
     }
-    .c-v1 {
+    .c-v7 {
         width: 100%;
         height: 100%;
         overflow: hidden;
@@ -845,7 +824,7 @@ p {
         display: flex;
         justify-content: center;
     }
-    .c-v1 img {
+    .c-v7 img {
         min-width: 100vw;
         min-height: 100vh;
         object-fit: cover;
@@ -855,7 +834,6 @@ p {
         max-height: 60vh;
         object-fit: scale-down;
     }
-
     /* SPACE FIVE */
     .five {
         display: flex;
@@ -883,14 +861,12 @@ p {
         min-height: auto;
         max-height: none;
     }
-
     /* SPACE TEN */
     .ten {
-        top: 50%;
-        left: 50%;
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
+        align-content: center;
         justify-content: space-around;
     }
     .c-t10 {
@@ -900,16 +876,16 @@ p {
     .c-t5 {
         display: flex;
         justify-content: center;
+        align-self: center;
     }
     .c-t10 img {
-        max-width: none;
+        max-width: 50vw;
         max-height: 35vh;
     }
     .c-t5 img {
-        max-width: none;
+        max-width: 50vw;
         max-height: 35vh;
     }
-
     /* SPACE ELEVEN */
     .eleven {
         width: 80%;
@@ -952,7 +928,7 @@ p {
 }
 
 /* Landscape phones */
-@media only screen and (max-width: 800px) and (orientation: landscape) {
+@media only screen and (max-width: 850px) and (orientation: landscape) {
     /* SPACE FIVE */
     .five {
         height: 75%;
@@ -961,10 +937,6 @@ p {
     .c-s4 img {
         max-height: 75vh;
     }
-}
-
-/* Landscape large phones */
-@media only screen and (min-width: 801px) and (max-width: 850px) and (orientation: landscape) {
     /* SPACE TEN */
     .ten {
         width: 75%;
@@ -985,5 +957,12 @@ p {
     }
     .c-n4 img {
         max-width: 24vw;
+    }
+    /* SPACE TEN */
+    .c-t10 img {
+        max-width: calc(30vw - 40px);
+    }
+    .c-t5 img {
+        max-width: calc(35vw - 40px);
     }
 }
