@@ -21,7 +21,8 @@ export const large = {
     t11: 'https://tahmooris.s3.amazonaws.com/t11-800.jpg',
     v1: 'https://tahmooris.s3.amazonaws.com/v1-1800.jpg',
     v7: 'https://tahmooris.s3.amazonaws.com/v7-800.jpg',
-    v8: 'https://tahmooris.s3.amazonaws.com/v8-1400.jpg',
+    v8: 'https://tahmooris.s3.amazonaws.com/v8-800.jpg',
+    v16: 'https://tahmooris.s3.amazonaws.com/v16-2000.jpg',
 };
 
 export const small = {
@@ -48,4 +49,5 @@ export const small = {
     v1: 'https://tahmooris.s3.amazonaws.com/v1-800.jpg',
     v7: 'https://tahmooris.s3.amazonaws.com/v7-600.jpg',
     v8: 'https://tahmooris.s3.amazonaws.com/v8-600.jpg',
+    v16: 'https://tahmooris.s3.amazonaws.com/v16-1000.jpg',
 };

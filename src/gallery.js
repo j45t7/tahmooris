@@ -131,12 +131,12 @@ export default function Gallery(props) {
             )}
             {space === 2 && (
                 <div className='space two'>
-                    <div className='c-v8'>
+                    <div className='c-v16'>
                         <img
-                            srcSet={`${large.v8} 1400w, ${small.v8} 600w`}
+                            srcSet={`${large.v16} 2000w, ${small.v16} 1000w`}
                             sizes='(max-width: 600px) 100vw, 100vw'
-                            src={large.v8}
-                            alt='A city covered in winter snow'
+                            src={large.v16}
+                            alt='Aerial view of countryside covered in winter snow'
                         />
                     </div>
                     <div className='c-s14'>
@@ -171,14 +171,22 @@ export default function Gallery(props) {
                             alt='Aerial view of a person walking through a snowy forest in winter'
                         />
                     </div>
-                    <div className='c-s2'>
+                    <div className='c-v8'>
+                        <img
+                            srcSet={`${large.v8} 800w, ${small.v8} 600w`}
+                            sizes='(max-width: 600px) 100vw, 50vw'
+                            src={large.v8}
+                            alt='Aerial view of a city in winter'
+                        />
+                    </div>
+                    {/* <div className='c-s2'>
                         <img
                             srcSet={`${large.s2} 800w, ${small.s2} 600w`}
                             sizes='(max-width: 600px) 600px, 800px'
                             src={large.s2}
                             alt='The wet face of a young man viewed in profile'
                         />
-                    </div>
+                    </div> */}
                 </div>
             )}
             {space === 5 && (

@@ -7,8 +7,7 @@ import Gallery from './gallery';
 export default function App() {
     const [infoVisible, setInfoVisible] = useState();
     const [currentComponent, setCurrentComponent] = useState();
-    let mouseDown = false;
-    let info, infoLabel;
+    let info, infoLabel, link;
 
     useEffect(() => {
         if (location.pathname === '/') {
@@ -20,7 +19,7 @@ export default function App() {
 
     const toggleInfo = e => {
         info = document.querySelector('.toggle');
-        if (mouseDown || e.key === 'Enter' || e.type === 'touchend') {
+        if (e.type === 'click' || e.key === 'Enter' || e.type === 'touchend') {
             if (!infoVisible) {
                 info.classList.remove('closed');
                 info.classList.add('open');
@@ -61,26 +60,7 @@ export default function App() {
         }
     };
 
-    const handleMouseDown = e => {
-        console.log('mouse down');
-        mouseDown = true;
-    };
-
-    const handleMouseUp = e => {
-        console.log('mouse up');
-        mouseDown = false;
-    };
-
-    const handleInfoFocus = e => {
-        console.log('focus');
-        if (mouseDown) {
-            toggleInfo();
-        } else {
-            toggleInfoLabel();
-        }
-    };
-
-    const handleGalleryMouse = e => {
+    const toggleGalleryLabel = e => {
         const workLabel = document.querySelector('.gallery-label');
         if (e.type === 'mouseenter') {
             workLabel.classList.remove('off');
@@ -100,111 +80,107 @@ export default function App() {
         }
     };
 
+    const handleGalleryFocus = e => {
+        if (e.type == 'click') {
+            return;
+        } else {
+            link = document.querySelector('.gallery-link');
+            link.classList.add('focused');
+        }
+    };
+
+    const handleGalleryBlur = e => {
+        if (e.type == 'click') {
+            return;
+        } else {
+            link = document.querySelector('.gallery-link');
+            link.classList.remove('focused');
+        }
+    };
+
     return (
         <BrowserRouter>
             <>
-                <div className='nav'>
-                    <div className='left-nav-touch'>
-                        <div
-                            className='info-label-touch'
-                            onTouchEnd={toggleInfo}>
-                            <p>INFO</p>
-                        </div>
-                    </div>
-                    <div className='left-nav'>
-                        <div
-                            tabIndex='1'
-                            onKeyDown={toggleInfo}
-                            onMouseDown={handleMouseDown}
-                            onMouseUp={handleMouseUp}
-                            onFocus={handleInfoFocus}
-                            onBlur={toggleInfoLabel}
-                            // onClick={toggleInfo}
-                            onMouseEnter={toggleInfoLabel}
-                            onMouseLeave={toggleInfoLabel}
-                            className='toggle closed'></div>
-                        <div className='info-label-container'>
-                            <div className='info-label off'>
-                                <p>INFORMATION</p>
-                            </div>
-                        </div>
-                    </div>
-                    {infoVisible && (
-                        <div className='info'>
-                            <p>Tahmooris Ramazankhani</p>
-                            <p>Photographer</p>
-                            <p>Berlin</p>
-                            <p>tahmooris@gmail.com</p>
-                            <p>Website by Tim Chandler</p>
-                        </div>
-                    )}
-                    {currentComponent == 'home' && (
-                        <>
-                            <div className='right-nav-touch'>
-                                <Link onClick={handleClick} to='/work/1'>
-                                    <div className='gallery-label-touch'>
-                                        <p className='label-touch'>WORK</p>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className='right-nav'>
-                                <div className='gallery-label-container'>
-                                    <div className='gallery-label off'>
-                                        <p>WORK</p>
-                                    </div>
-                                </div>
-                                <Link
-                                    tabIndex='-1'
-                                    onMouseEnter={e => {
-                                        handleGalleryMouse(e);
-                                    }}
-                                    onMouseLeave={e => {
-                                        handleGalleryMouse(e);
-                                    }}
-                                    onClick={handleClick}
-                                    to='/work/1'>
-                                    <div
-                                        tabIndex='2'
-                                        className='gallery-link'
-                                    />
-                                </Link>
-                            </div>
-                        </>
-                    )}
-                    {currentComponent == 'work' && (
-                        <>
-                            <div className='right-nav-touch'>
-                                <Link onClick={handleClick} to='/'>
-                                    <div className='gallery-label-touch'>
-                                        <p className='label-touch'>HOME</p>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className='right-nav'>
-                                <div className='gallery-label-container'>
-                                    <div className='gallery-label off'>
-                                        <p>HOME</p>
-                                    </div>
-                                </div>
-                                <Link
-                                    tabIndex='-1'
-                                    onMouseEnter={e => {
-                                        handleGalleryMouse(e);
-                                    }}
-                                    onMouseLeave={e => {
-                                        handleGalleryMouse(e);
-                                    }}
-                                    onClick={handleClick}
-                                    to='/'>
-                                    <div
-                                        tabIndex='2'
-                                        className='gallery-link'
-                                    />
-                                </Link>
-                            </div>
-                        </>
-                    )}
+                <div className='left-nav-touch' onTouchEnd={toggleInfo}>
+                    <p>INFO</p>
                 </div>
+                <div className='left-nav'>
+                    <div
+                        tabIndex='1'
+                        onKeyDown={toggleInfo}
+                        onClick={toggleInfo}
+                        onMouseEnter={toggleInfoLabel}
+                        onMouseLeave={toggleInfoLabel}
+                        className='toggle closed'></div>
+                    <div className='info-label-container'>
+                        <div className='info-label off'>
+                            <p>INFORMATION</p>
+                        </div>
+                    </div>
+                </div>
+                {infoVisible && (
+                    <div className='info'>
+                        <p>Tahmooris Ramazankhani</p>
+                        <p>Photographer</p>
+                        <p>Berlin</p>
+                        <p>tahmooris@gmail.com</p>
+                        <p>Website by Tim Chandler</p>
+                    </div>
+                )}
+                {currentComponent == 'home' && (
+                    <>
+                        <div className='right-nav-touch'>
+                            <Link onClick={handleClick} to='/work/1'>
+                                <p className='label-touch'>WORK</p>
+                            </Link>
+                        </div>
+                        <div className='right-nav'>
+                            <div className='gallery-label-container'>
+                                <div className='gallery-label off'>
+                                    <p>WORK</p>
+                                </div>
+                            </div>
+                            <Link
+                                className='right-link'
+                                tabIndex='2'
+                                onMouseEnter={toggleGalleryLabel}
+                                onMouseLeave={toggleGalleryLabel}
+                                onClick={handleClick}
+                                onFocus={handleGalleryFocus}
+                                onBlur={handleGalleryBlur}
+                                to='/work/1'>
+                                <div className='gallery-link' />
+                            </Link>
+                        </div>
+                    </>
+                )}
+                {currentComponent == 'work' && (
+                    <>
+                        <div className='right-nav-touch'>
+                            <Link onClick={handleClick} to='/'>
+                                <p className='label-touch'>HOME</p>
+                            </Link>
+                        </div>
+                        <div className='right-nav'>
+                            <div className='gallery-label-container'>
+                                <div className='gallery-label off'>
+                                    <p>HOME</p>
+                                </div>
+                            </div>
+                            <Link
+                                className='right-link'
+                                tabIndex='2'
+                                onMouseEnter={toggleGalleryLabel}
+                                onMouseLeave={toggleGalleryLabel}
+                                onClick={handleClick}
+                                onFocus={handleGalleryFocus}
+                                onBlur={handleGalleryBlur}
+                                to='/'>
+                                <div className='gallery-link'></div>
+                            </Link>
+                        </div>
+                    </>
+                )}
                 <Route exact path='/' component={Home} />
                 <Route path='/work/:space' component={Gallery} />
             </>
