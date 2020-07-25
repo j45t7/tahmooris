@@ -49,13 +49,6 @@ a:hover {
 /* FONT SETUP */
 @font-face {
     font-family: 'Manrope';
-    src: url('fonts/Manrope-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Manrope';
     src: url('fonts/Manrope-Bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
@@ -770,14 +763,6 @@ p {
 }
 
 /* MEDIA QUERIES */
-/* Use landscape mode */
-/* @media (max-device-width: 1024px) and (orientation: portrait) {
- body {
-  width: 100vh;
-  height: 100vw;
-  transform-origin: 0 0;
-  transform: rotateZ(90deg) translate3d(0%,-100%,0)
- } */
 
 /* Touch screens */
 @media (hover: none), (hover: on-demand) {
@@ -803,18 +788,6 @@ p {
     .right-nav {
         display: none;
     }
-    /* .gallery-nav {
-        display: none;
-    } */
-    /* .gallery-nav-touch {
-        display: block;
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 1;
-    } */
 }
 
 /* Smart phones */
