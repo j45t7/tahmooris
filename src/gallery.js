@@ -90,25 +90,25 @@ export default function Gallery(props) {
 
     return (
         <div className='gallery'>
-            <div className='gallery-nav'>
+            <div className='gallery-nav noSelect'>
                 <Link
                     onClick={clickPrevious}
                     className='previous'
                     to={`/work/${previousSpace}`}>
-                    <div className='previous'></div>
+                    <div className='previous noSelect'></div>
                 </Link>
                 <Link
                     onClick={clickNext}
                     className='next'
                     to={`/work/${nextSpace}`}>
-                    <div className='next'></div>
+                    <div className='next noSelect'></div>
                 </Link>
             </div>
-            <Swipeable
+            {/* <Swipeable
                 onSwipedLeft={swipeNext}
                 onSwipedRight={swipePrevious}
                 className='gallery-nav-touch'
-            />
+            /> */}
             {space === 1 && (
                 <div className='space one'>
                     <div className='c-l2'>

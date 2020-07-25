@@ -235,6 +235,16 @@ p {
     outline: none;
 }
 
+.noSelect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
 /* GALLERY */
 .gallery {
     height: 100%;
@@ -464,8 +474,8 @@ p {
 .c-n4 {
     grid-column: 1 / 5;
     grid-row: 1 / 5;
-    animation: 1s fadeIn;
-    animation-delay: 0.3s;
+    animation: 0.5s fadeIn;
+    animation-delay: 0.2s;
     animation-fill-mode: forwards;
     visibility: hidden;
 }
@@ -475,8 +485,8 @@ p {
     grid-row: 7 / 13;
     align-self: end;
     display: flex;
-    animation: 1s fadeIn;
-    animation-delay: 0.8s;
+    animation: 0.5s fadeIn;
+    animation-delay: 0.4s;
     animation-fill-mode: forwards;
     visibility: hidden;
     z-index: -1;
@@ -605,8 +615,8 @@ p {
 }
 
 .c-t10 {
-    animation: 1s fadeIn;
-    animation-delay: 0.8s;
+    animation: 0.5s fadeIn;
+    animation-delay: 0.4s;
     animation-fill-mode: forwards;
     visibility: hidden;
 }
@@ -622,8 +632,7 @@ p {
     align-self: end;
     display: flex;
     justify-content: center;
-    animation: 1s fadeIn;
-    animation-delay: 0.2s;
+    animation: 0.5s fadeIn;
     animation-fill-mode: forwards;
     visibility: hidden;
 }
@@ -786,16 +795,18 @@ p {
         right: 0;
         justify-content: flex-end;
     }
-    .left-nav,
-    .right-nav,
-    .gallery-nav {
-        display: none;
-    }
     .info {
         top: auto;
         bottom: 0;
     }
-    .gallery-nav-touch {
+    .left-nav,
+    .right-nav {
+        display: none;
+    }
+    /* .gallery-nav {
+        display: none;
+    } */
+    /* .gallery-nav-touch {
         display: block;
         position: fixed;
         top: 0;
@@ -803,7 +814,7 @@ p {
         bottom: 0;
         left: 0;
         z-index: 1;
-    }
+    } */
 }
 
 /* Smart phones */
