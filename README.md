@@ -13,4 +13,4 @@ This project is a small web portfolio for a photographic artist, Tahmooris Ramaz
 * Accessible navigation with keyboard (Tab, Enter, Left and Right arrows)
 
 ### Visit
-http://tahmooris.com
+https://tahmooris.com
