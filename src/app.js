@@ -41,11 +41,9 @@ export default function App() {
         if (infoLabel.classList.contains('off')) {
             infoLabel.classList.remove('off');
             infoLabel.classList.add('on');
-            console.log('one', e.type);
         } else {
             infoLabel.classList.remove('on');
             infoLabel.classList.add('off');
-            console.log('two', e.type);
         }
         if (e.type === 'mousedown') {
             if (document.activeElement.classList.contains('toggle')) {
@@ -73,6 +71,12 @@ export default function App() {
     };
 
     const handleClick = e => {
+        info = document.querySelector('.toggle');
+        if (infoVisible) {
+            info.classList.remove('open');
+            info.classList.add('closed');
+            setInfoVisible(false);
+        }
         if (currentComponent == 'home') {
             setCurrentComponent('work');
         } else {
