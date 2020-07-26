@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import animation from './animation-points';
+import animation from './animation';
 import { large, small } from './files';
 
 export default function Home() {

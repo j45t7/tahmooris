@@ -20,19 +20,6 @@ export default function animation(container) {
         camera.position.set(-4, 4, 20);
     };
 
-    // const createLights = () => {
-    //     const ambientLight = new THREE.HemisphereLight(
-    //         0xddeeff, // sky color
-    //         0x202020, // ground color
-    //         4 // intensity
-    //     );
-
-    //     const mainLight = new THREE.DirectionalLight(0xffffff, 4);
-    //     mainLight.position.set(10, 10, 10);
-
-    //     scene.add(ambientLight, mainLight);
-    // };
-
     const createMeshes = () => {
         const radius = 5;
         const widthSegments = 40;
@@ -42,11 +29,6 @@ export default function animation(container) {
             widthSegments,
             heightSegments
         );
-
-        // const textureLoader = new THREE.TextureLoader();
-        // const texture = textureLoader.load('images/s13.jpg');
-        // texture.encoding = THREE.sRGBEncoding;
-        // texture.anisotropy = 16;
 
         material = new THREE.PointsMaterial({
             color: 'white',
@@ -79,7 +61,6 @@ export default function animation(container) {
         scene = new THREE.Scene();
 
         createCamera();
-        // createLights();
         createMeshes();
         createRenderer();
         createControls();
