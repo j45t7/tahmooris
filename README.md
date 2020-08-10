@@ -10,11 +10,11 @@ This project is a small online portfolio for a photographic artist, Tahmooris
 Ramazankhani, who works in Berlin, Germany. It comprises a homepage, contact
 information and a gallery.
 
-### Technolgoy
+### Technology
 
 -   Node/Express server
 -   React framework
--   3D animation made with Three.js
+-   Three.js animation
 -   Deployed with Heroku, AWS and Cloudflare
 
 ### Features
