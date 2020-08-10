@@ -19,9 +19,10 @@ information and a gallery.
 
 ### Features
 
--   The site has two components: - A homepage featuring a 3D animation made with
-    Three.js - A gallery space consisting of 14 pages, each with a unique URL,
-    navigated by clicking
+-   The site has two components:
+    -   A homepage featuring a 3D animation made with Three.js
+    -   A gallery space consisting of 14 pages, each with a unique URL,
+        navigated by clicking
 -   The header contains two buttons that (1) toggle information about the artist
     and (2) navigate between the homepage and the gallery
 -   The site incorporates responsive and adaptive CSS for mobile and tablet, in
